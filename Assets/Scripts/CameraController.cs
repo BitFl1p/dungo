@@ -12,6 +12,16 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         
+        if (GameObject.FindGameObjectsWithTag("MainCamera").Length > 1)
+        {
+            Object.Destroy(gameObject);
+
+        }
+        else
+        {
+            DontDestroyOnLoad(transform.gameObject);
+
+        }
     }
 
     // Update is called once per frame
