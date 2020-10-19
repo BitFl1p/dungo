@@ -12,11 +12,13 @@ GameObject:
   - component: {fileID: 2241060162955130084}
   - component: {fileID: 2241060162955130107}
   - component: {fileID: 2241060162955130105}
+  - component: {fileID: 2854437814261769670}
+  - component: {fileID: 8594189392261949246}
   - component: {fileID: 2241060162955130106}
   - component: {fileID: 2241060162955130104}
   m_Layer: 0
   m_Name: slime_red
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,6 +123,33 @@ MonoBehaviour:
   timeBetweenMove: 2
   timeToMove: 2
   waitToReload: 2
+--- !u!114 &2854437814261769670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2241060162955130087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5e7d5908c5e02479b1d3a4f9064202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+--- !u!114 &8594189392261949246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2241060162955130087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b986cf901ad82a646904d431a0a9393b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMaxHealth: 3
+  enemyCurrentHealth: 3
 --- !u!58 &2241060162955130106
 CircleCollider2D:
   m_ObjectHideFlags: 0
