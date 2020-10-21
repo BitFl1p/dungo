@@ -13,9 +13,9 @@ public class SlimeController : MonoBehaviour
     public float timeToMove;
     private float timeToMoveCounter;
     private Vector3 moveDir;
-    public float waitToReload;
-    private bool reloading;
-    private GameObject thePlayer;
+    //public float waitToReload;
+    //private bool reloading;
+    //private GameObject thePlayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,16 +47,16 @@ public class SlimeController : MonoBehaviour
                 moveDir = new Vector3(Random.Range(-1f,1f) * moveSpeed, Random.Range(-1f, 1f) * moveSpeed, 0f);
             } 
         }
-        if (reloading)
-        {
-            waitToReload -= Time.deltaTime;
-            if (waitToReload <= 0)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                thePlayer.SetActive(true);
-            }
-
-        }
+        //if (reloading)
+        //{
+        //    waitToReload -= Time.deltaTime;
+        //    if (waitToReload <= 0)
+        //    {
+        //        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //        thePlayer.SetActive(true);
+        //    }
+        //
+        //}
     }
 
 }

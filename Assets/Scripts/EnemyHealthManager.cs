@@ -6,10 +6,13 @@ public class EnemyHealthManager : MonoBehaviour
 {
     public int enemyMaxHealth;
     public int enemyCurrentHealth;
+    private PlayerStats playerStats;
+    public int expToGive;
     // Start is called before the first frame update
     void Start()
     {
         enemyCurrentHealth = enemyMaxHealth;
+        playerStats = FindObjectOfType<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -17,6 +20,7 @@ public class EnemyHealthManager : MonoBehaviour
     {
         if (enemyCurrentHealth <= 0)
         {
+            playerStats.AddExperience(expToGive);
             Destroy(gameObject);
 
         }

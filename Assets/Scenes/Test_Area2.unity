@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad: SampleScene
+  exitPoint: Test House Out
 --- !u!61 &7817862
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startDirection: {x: 0, y: 1}
+  pointName: Test House In
 --- !u!4 &826584922
 Transform:
   m_ObjectHideFlags: 0
@@ -248,7 +250,7 @@ GameObject:
   - component: {fileID: 1063904905}
   - component: {fileID: 1063904904}
   m_Layer: 0
-  m_Name: Tilemap (2)
+  m_Name: Transparents2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -531,6 +533,15 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
+  - first: {x: -1, y: 5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 27
+      m_TileSpriteIndex: 27
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
   - first: {x: 1, y: 5, z: 0}
     second:
       serializedVersion: 2
@@ -695,6 +706,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 487c1d2185bb4424e93834b047703281, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 1da9d3706d2b4f048aca09df5fc6e81e, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: c4d989b1d954600438bc1e59cbcb7599, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: -5227824681301594550, guid: 67aac921975deea49943e12d24d55447,
@@ -775,8 +788,11 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -6700419683718140644, guid: 67aac921975deea49943e12d24d55447,
       type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 1871044274201238006, guid: 67aac921975deea49943e12d24d55447,
+      type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 35
+  - m_RefCount: 36
     m_Data:
       e00: 1
       e01: 0
@@ -795,7 +811,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 35
+  - m_RefCount: 36
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -821,6 +837,78 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1074272246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1074272247}
+  - component: {fileID: 1074272249}
+  - component: {fileID: 1074272248}
+  m_Layer: 0
+  m_Name: HouseBackdoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1074272247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074272246}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1977932049}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074272248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074272246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002c724206e24704b865ec6db20c81fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad: SampleScene
+  exitPoint: Test House Backdoor Out
+--- !u!61 &1074272249
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074272246}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1598627224
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,7 +921,7 @@ GameObject:
   - component: {fileID: 1598627227}
   - component: {fileID: 1598627226}
   m_Layer: 0
-  m_Name: Tilemap (1)
+  m_Name: Transparents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1856,15 +1944,6 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: -1, y: 5, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
   - first: {x: 0, y: 5, z: 0}
     second:
       serializedVersion: 2
@@ -1885,14 +1964,14 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 59
+  - m_RefCount: 58
     m_Data: {fileID: 11400000, guid: 212fc582c07a3494ab06279208b6f12d, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 59
+  - m_RefCount: 58
     m_Data: {fileID: -4999886818153136281, guid: 67aac921975deea49943e12d24d55447,
       type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 59
+  - m_RefCount: 58
     m_Data:
       e00: 1
       e01: 0
@@ -1911,7 +1990,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 59
+  - m_RefCount: 58
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -1982,6 +2061,7 @@ Transform:
   - {fileID: 1063904903}
   - {fileID: 1802238234}
   - {fileID: 7817863}
+  - {fileID: 1074272247}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

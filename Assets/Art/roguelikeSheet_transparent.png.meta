@@ -10228,7 +10228,7 @@ TextureImporter:
     second: roguelikeSheet_transparent_1703
   - first:
       213: -6559194364340845375
-    second: roguelikeSheet_transparent_1704
+    second: tree
   - first:
       213: -1611139547642833986
     second: roguelikeSheet_transparent_1705
@@ -46171,6 +46171,27 @@ TextureImporter:
       bones: []
       spriteID: 3b5f33d79e9db0930800000000000000
       internalID: 4110618681756874163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 323
+        width: 16
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c448bc4a7f09f4a0800000000000000
+      internalID: -6559194364340845375
       vertices: []
       indices: 
       edges: []

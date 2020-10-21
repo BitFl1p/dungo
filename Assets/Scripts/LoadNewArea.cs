@@ -6,11 +6,22 @@ using UnityEngine.SceneManagement;
 public class LoadNewArea : MonoBehaviour
 {
     public string levelToLoad;
-    
+    public string exitPoint;
+    private PlayerController thePlayer;
+
+    void Start()
+    {
+
+        thePlayer = FindObjectOfType<PlayerController>();
+
+
+    }
+
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D other)
     {
         
         if (other.gameObject.name == "Player") { SceneManager.LoadScene(levelToLoad); }
+        thePlayer.startPoint = exitPoint;
     }
 }
