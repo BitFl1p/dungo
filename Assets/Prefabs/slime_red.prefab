@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8594189392261949246}
   - component: {fileID: 2241060162955130106}
   - component: {fileID: 2241060162955130104}
+  - component: {fileID: 2920696354463647386}
   m_Layer: 0
   m_Name: slime_red
   m_TagString: Enemy
@@ -135,6 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  damageNumber: {fileID: 8213264709800143376, guid: 37d6d2709effe66428835ecefc2d3d95,
+    type: 3}
 --- !u!114 &8594189392261949246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,3 +190,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2920696354463647386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2241060162955130087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 000000003b7114d0fb601fa8bd640aed
+  m_ShapePath:
+  - {x: -0.32429838, y: 0.02710551, z: 0}
+  - {x: -0.23946428, y: -0.39391226, z: 0}
+  - {x: 0.23946524, y: -0.40241393, z: 0}
+  - {x: 0.32429838, y: 0.029939353, z: 0}
+  - {x: 0.17977, y: 0.3129626, z: 0}
+  - {x: -0.17410088, y: 0.31012863, z: 0}
+  m_ShapePathHash: 1173036145
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 42762
