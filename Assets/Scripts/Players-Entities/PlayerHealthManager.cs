@@ -11,7 +11,7 @@ public class PlayerHealthManager : MonoBehaviour
     public float flashLength;
     private float flashCount;
     private SpriteRenderer playerSprite;
-    public float knockback;
+    
     // Start is called before the first frame update
     void Start()
     {

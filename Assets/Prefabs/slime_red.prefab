@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1914194677
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 1065320421757918789, guid: 8a18e27abf9ca9a40bd010bee8458481,
     type: 3}
@@ -153,6 +153,7 @@ MonoBehaviour:
   enemyMaxHealth: 3
   enemyCurrentHealth: 3
   expToGive: 25
+  enemyQuestName: Red Slime
 --- !u!58 &2241060162955130106
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -217,4 +218,4 @@ MonoBehaviour:
   - {x: -0.17410088, y: 0.31012863, z: 0}
   m_ShapePathHash: 1173036145
   m_Mesh: {fileID: 0}
-  m_InstanceId: 42762
+  m_InstanceId: 48380

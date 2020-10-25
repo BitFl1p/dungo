@@ -10,17 +10,19 @@ public class PlayerController : MonoBehaviour
     public float speed;
     private bool playerMoving;
     public Vector2 lastMove;
+    private Vector2 moveInput;
     private Rigidbody2D myRigidbody;
     private bool attacking;
     public float attackTime;
     private float attackTimeCounter;
     public string startPoint;
     public float diagonalMoveModifier;
-    
+    public bool canMove;
 
     // Start is called before the first frame update
     void Start()
     {
+        lastMove = new Vector2(0f, -1f);
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
         if (GameObject.FindGameObjectsWithTag("Player").Length > 1) {
@@ -30,21 +32,22 @@ public class PlayerController : MonoBehaviour
             DontDestroyOnLoad(transform.gameObject);
             
         } // check if player exists in the scene already or not
-        
+        canMove = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        playerMoving = false;
+        if (!canMove) { myRigidbody.velocity = Vector2.zero; return; }
         if (!attacking)
         {
 
             anim.SetBool("PlayerAttacking", false);
 
 
-            playerMoving = false;
-            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) { playerMoving = true; lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")); } // player movement
+
+            /*if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) { playerMoving = true; lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")); } // player movement
             if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.5f && Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.5f)
             {
                 currentMoveSpeed = speed * diagonalMoveModifier;
@@ -54,6 +57,15 @@ public class PlayerController : MonoBehaviour
             }
             myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * currentMoveSpeed, Input.GetAxisRaw("Vertical") * currentMoveSpeed);
             //transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime, Input.GetAxisRaw("Vertical") * speed * Time.deltaTime, 0f));
+            */
+            moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+            if (moveInput != Vector2.zero)
+            {
+                playerMoving = true;
+                myRigidbody.velocity = new Vector2(moveInput.x * speed, moveInput.y * speed);
+                lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            }
+            else { myRigidbody.velocity = Vector2.zero; }
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 attackTimeCounter = attackTime;

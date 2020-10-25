@@ -108,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 1914194677
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7689178857411958747, guid: 77fc105b8b4050642b6eefcdc557f19c,
+  m_Sprite: {fileID: -4173602929955803717, guid: 8e18f091ca8d7fe4cbf2bcd5356e715c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -152,7 +152,6 @@ MonoBehaviour:
   playerMaxHealth: 5
   playerCurrentHealth: 5
   flashLength: 0
-  knockback: 0
 --- !u!95 &2309188115147712871
 Animator:
   serializedVersion: 3
@@ -210,7 +209,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.125, y: 1.4375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -256,7 +255,7 @@ MonoBehaviour:
   - {x: -0.32584688, y: 0.33898658, z: 0}
   m_ShapePathHash: -1978196989
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29160
+  m_InstanceId: 29436
 --- !u!1 &5542978001519799799
 GameObject:
   m_ObjectHideFlags: 0
