@@ -11,10 +11,12 @@ public class PlayerHealthManager : MonoBehaviour
     public float flashLength;
     private float flashCount;
     private SpriteRenderer playerSprite;
+    private SFXManager sfxMan;
     
     // Start is called before the first frame update
     void Start()
     {
+        sfxMan = FindObjectOfType<SFXManager>();
         playerCurrentHealth = playerMaxHealth;
         playerSprite = GetComponent<SpriteRenderer>();
         //Debug.Log("Yeet");
@@ -26,6 +28,7 @@ public class PlayerHealthManager : MonoBehaviour
     {
         if (playerCurrentHealth <=0) 
         {
+            sfxMan.playerDead.Play();
             gameObject.SetActive(false);
 
         }
@@ -49,7 +52,7 @@ public class PlayerHealthManager : MonoBehaviour
         playerCurrentHealth -= damage;
         flashActive = true;
         flashCount = flashLength;
-
+        sfxMan.playerHurt.Play();
     }
 
     public void SetMaxHealth() { playerCurrentHealth = playerMaxHealth; }

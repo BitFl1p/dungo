@@ -18,13 +18,14 @@ public class PlayerController : MonoBehaviour
     public string startPoint;
     public float diagonalMoveModifier;
     public bool canMove;
-
+    private SFXManager sfxMan;
     // Start is called before the first frame update
     void Start()
     {
         lastMove = new Vector2(0f, -1f);
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+        sfxMan = FindObjectOfType<SFXManager>();
         if (GameObject.FindGameObjectsWithTag("Player").Length > 1) {
             Object.Destroy(gameObject);
 
@@ -72,6 +73,8 @@ public class PlayerController : MonoBehaviour
                 attacking = true;
                 myRigidbody.velocity = Vector2.zero;
                 anim.SetBool("PlayerAttacking", true);
+
+                sfxMan.PlayerAttack.Play();
 
             }
         }
