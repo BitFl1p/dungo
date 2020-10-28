@@ -19,7 +19,15 @@ public class PlayerController : MonoBehaviour
     public float diagonalMoveModifier;
     public bool canMove;
     private SFXManager sfxMan;
+    private Inventory inventory;
+    [SerializeField] private UI_Inventory uiInventory;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        inventory = new Inventory(UseItem);
+        uiInventory.SetInventory(inventory);
+        
+    }
     void Start()
     {
         lastMove = new Vector2(0f, -1f);
@@ -34,6 +42,14 @@ public class PlayerController : MonoBehaviour
             
         } // check if player exists in the scene already or not
         canMove = true;
+    }
+    private void UseItem(Item item)
+    {
+        switch (item.itemType)
+        {
+            // gotta add some usability to my items but not today because FUCK THAT
+            // inventory.RemoveItem(new Item { itemType = Item.ItemType.someShit, amount = 1 })
+        }
     }
 
     // Update is called once per frame
@@ -87,5 +103,14 @@ public class PlayerController : MonoBehaviour
         if (attackTimeCounter > 0) { attackTimeCounter -= Time.deltaTime * 2;}
         if (attackTimeCounter <= 0) { attacking = false; anim.SetBool("PlayerAttacking", false); }
         
+    }
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
+        if(itemWorld != null)
+        {
+            inventory.AddItem(itemWorld.GetItem());
+            itemWorld.DestroySelf();
+        }
     }
 }
