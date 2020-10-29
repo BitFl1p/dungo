@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Events;
 using UnityEngine;
+//using CodeMonkey;
+using UnityEngine.Diagnostics;
+//using CodeMonkey.Utils;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,19 +24,29 @@ public class PlayerController : MonoBehaviour
     public bool canMove;
     private SFXManager sfxMan;
     private Inventory inventory;
+    [SerializeField] private Vector3 mousePos;
     [SerializeField] private UI_Inventory uiInventory;
+    public Camera theCamera;
+    private float thirdHeight;
+    private float halfHeight;
+    private float thirdWidth;
     // Start is called before the first frame update
     private void Awake()
     {
         inventory = new Inventory(UseItem);
         uiInventory.SetInventory(inventory);
+        //UtilsClass.GetMouseWorldPosition();
         
+        thirdHeight = theCamera.orthographicSize * 2 / 3;
+        thirdWidth = theCamera.orthographicSize * (Screen.width / Screen.height);
+
     }
     void Start()
     {
         lastMove = new Vector2(0f, -1f);
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+
         sfxMan = FindObjectOfType<SFXManager>();
         if (GameObject.FindGameObjectsWithTag("Player").Length > 1) {
             Object.Destroy(gameObject);
@@ -55,6 +69,34 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
+        //if(mousePos.y <= thirdHeight)
+        //{
+        //    lastMove.x = 1;
+        //}
+        //else if (mousePos.y <= 2*thirdHeight&& mousePos.y >= thirdHeight)
+        //{
+        //    lastMove.x = 0;
+        //}
+        //else if (mousePos.y >= 3*thirdHeight)
+        //{
+        //    lastMove.x = -1;
+        //}
+        //switch (mousePos.x)
+        //{
+
+        //    case 1f:
+        //        lastMove.x = 1;
+        //        break;
+        //    case 0f:
+        //        lastMove.x = 0;
+        //        break;
+        //    case -1f:
+        //        lastMove.x = -1;
+        //        break;
+        //}
+        lastMove = new Vector2(mousePos.x,mousePos.y);
         playerMoving = false;
         if (!canMove) { myRigidbody.velocity = Vector2.zero; return; }
         if (!attacking)
@@ -111,6 +153,7 @@ public class PlayerController : MonoBehaviour
         {
             inventory.AddItem(itemWorld.GetItem());
             itemWorld.DestroySelf();
+            
         }
     }
 }

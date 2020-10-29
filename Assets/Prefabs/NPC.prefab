@@ -221,3 +221,4 @@ MonoBehaviour:
   walkTime: 1
   waitTime: 1
   walkZone: {fileID: 0}
+  canMove: 0

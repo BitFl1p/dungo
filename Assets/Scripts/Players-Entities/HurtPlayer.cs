@@ -6,6 +6,8 @@ public class HurtPlayer : MonoBehaviour
 {
     public int damage;
     public GameObject damageNumber;
+    public float knockback = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,10 @@ public class HurtPlayer : MonoBehaviour
             other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damage);
             var clone = Instantiate(damageNumber, other.transform.position, Quaternion.Euler(Vector3.zero));
             clone.GetComponent<FloatingNumbers>().damage = damage;
+            Vector3 direction = (other.transform.position - transform.position) * knockback * 10;
+            direction.Normalize();
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(direction, ForceMode2D.Impulse);
+            
         }
     }
 }

@@ -11,14 +11,44 @@ public class UI_Inventory : MonoBehaviour
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
     private PlayerController player;
+    public bool uIInventoryActive;
+    public float moveSpeed;
+    private RectTransform myRectTrans;
+    private Vector2 myOffScreenPos;
+    private Vector2 myOnScreenPos;
+
     private void Awake()
     {
         itemSlotContainer = transform.Find("ItemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("ItemSlotTemplate");
         player = FindObjectOfType<PlayerController>();
-        
+        uIInventoryActive = false;
+        myRectTrans = gameObject.GetComponent<RectTransform>();
+        myOnScreenPos = new Vector2(myRectTrans.anchoredPosition.x, myRectTrans.anchoredPosition.y);
+        myOffScreenPos = new Vector2(myRectTrans.anchoredPosition.x + 1000, myRectTrans.anchoredPosition.y);
+        myRectTrans.anchoredPosition = myOffScreenPos;
+
     }
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            
+            switch (uIInventoryActive)
+            {
+                case true:
+                    myRectTrans.anchoredPosition = myOffScreenPos;
+                    uIInventoryActive = false;
+                    break;
+                case false:
+                    myRectTrans.anchoredPosition = myOnScreenPos;
+                    uIInventoryActive = true;
+                    break;
+            }
+
+        }
+    }
+
     public void SetInventory(Inventory inventory)
     {
         this.inventory = inventory;

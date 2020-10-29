@@ -13,6 +13,7 @@ public class SlimeController : MonoBehaviour
     public float timeToMove;
     private float timeToMoveCounter;
     private Vector3 moveDir;
+    public bool canMove = true;
     //public float waitToReload;
     //private bool reloading;
     //private GameObject thePlayer;
@@ -22,30 +23,38 @@ public class SlimeController : MonoBehaviour
         myRB = GetComponent<Rigidbody2D>();
         timeBetweenMoveCounter = Random.Range(timeBetweenMove*0.75f, timeBetweenMove * 1.25f);
         timeToMoveCounter = Random.Range(timeToMove * 0.75f, timeToMove * 1.25f);
+        canMove = true;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (moving) 
+        if (canMove)
         {
-            timeToMoveCounter -= Time.deltaTime;
-            myRB.velocity = moveDir;
-            if (timeToMoveCounter <= 0f) 
+
+            if (moving)
             {
-                moving = false;
-                timeBetweenMoveCounter = Random.Range(timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
+                timeToMoveCounter -= Time.deltaTime;
+                myRB.velocity = moveDir;
+                if (timeToMoveCounter <= 0f)
+                {
+                    myRB.velocity = Vector2.zero;
+                    moving = false;
+                    timeBetweenMoveCounter = Random.Range(timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
+                }
             }
-        } else 
-        { 
-            timeBetweenMoveCounter -= Time.deltaTime;
-            myRB.velocity = Vector2.zero;
-            if (timeBetweenMoveCounter <= 0f) { 
-                moving = true;
-                timeToMoveCounter = Random.Range(timeToMove * 0.75f, timeToMove * 1.25f);
-                moveDir = new Vector3(Random.Range(-1f,1f) * moveSpeed, Random.Range(-1f, 1f) * moveSpeed, 0f);
-            } 
+            else
+            {
+                timeBetweenMoveCounter -= Time.deltaTime;
+
+                if (timeBetweenMoveCounter <= 0f)
+                {
+                    moving = true;
+                    timeToMoveCounter = Random.Range(timeToMove * 0.75f, timeToMove * 1.25f);
+                    moveDir = new Vector3(Random.Range(-1f, 1f) * moveSpeed, Random.Range(-1f, 1f) * moveSpeed, 0f);
+                }
+            }
         }
         //if (reloading)
         //{

@@ -1,0 +1,1712 @@
+fileFormatVersion: 2
+guid: c54966b5422c9e848a605ad40266adf1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5677362651836156842
+    second: PloymusA (4)_0
+  - first:
+      213: 5787357039818195006
+    second: PloymusA (4)_1
+  - first:
+      213: 5750432363479701546
+    second: PloymusA (4)_2
+  - first:
+      213: -3617049785422913858
+    second: PloymusA (4)_3
+  - first:
+      213: 5723652559194152259
+    second: PloymusA (4)_4
+  - first:
+      213: -7465842028720771505
+    second: PloymusA (4)_5
+  - first:
+      213: 9147181767866085344
+    second: PloymusA (4)_6
+  - first:
+      213: 5677458047269691213
+    second: PloymusA (4)_7
+  - first:
+      213: -6128527124203439365
+    second: PloymusA (4)_8
+  - first:
+      213: -4750276512346092568
+    second: PloymusA (4)_9
+  - first:
+      213: 1844743907620033495
+    second: PloymusA (4)_10
+  - first:
+      213: 1752013053024425953
+    second: PloymusA (4)_11
+  - first:
+      213: -2790004245406975735
+    second: PloymusA (4)_12
+  - first:
+      213: -7013445059479538978
+    second: PloymusA (4)_13
+  - first:
+      213: 1708412371550561117
+    second: PloymusA (4)_14
+  - first:
+      213: -3782490700931403177
+    second: PloymusA (4)_15
+  - first:
+      213: -2088018138373104128
+    second: PloymusA (4)_16
+  - first:
+      213: -4483624277271929310
+    second: PloymusA (4)_17
+  - first:
+      213: 8203619964487107990
+    second: PloymusA (4)_18
+  - first:
+      213: -2838471606475250429
+    second: PloymusA (4)_19
+  - first:
+      213: -2543372309255866127
+    second: PloymusA (4)_20
+  - first:
+      213: -1576972738395550162
+    second: PloymusA (4)_21
+  - first:
+      213: -9125434838296765902
+    second: PloymusA (4)_22
+  - first:
+      213: -4254354931781798847
+    second: PloymusA (4)_23
+  - first:
+      213: -7982096104207128711
+    second: PloymusA (4)_24
+  - first:
+      213: 3019138486824668074
+    second: PloymusA (4)_25
+  - first:
+      213: 2838428590586418155
+    second: PloymusA (4)_26
+  - first:
+      213: 5958919502926454471
+    second: PloymusA (4)_27
+  - first:
+      213: 1842522287630718230
+    second: PloymusA (4)_28
+  - first:
+      213: -1660981560214077399
+    second: PloymusA (4)_29
+  - first:
+      213: -5918517583755276204
+    second: PloymusA (4)_30
+  - first:
+      213: 588081534182170132
+    second: PloymusA (4)_31
+  - first:
+      213: 3680968739327572613
+    second: PloymusA (4)_32
+  - first:
+      213: -5201196442029407683
+    second: PloymusA (4)_33
+  - first:
+      213: 3633914320372733285
+    second: PloymusA (4)_34
+  - first:
+      213: -5947724336509456434
+    second: PloymusA (4)_35
+  - first:
+      213: 5985258621203619829
+    second: PloymusA (4)_36
+  - first:
+      213: 5714795855725133985
+    second: PloymusA (4)_37
+  - first:
+      213: 7308710763304783671
+    second: PloymusA (4)_38
+  - first:
+      213: -6315436962310066373
+    second: PloymusA (4)_39
+  - first:
+      213: -6320416924916801656
+    second: PloymusA (4)_40
+  - first:
+      213: 468864802550390022
+    second: PloymusA (4)_41
+  - first:
+      213: -3740402640546472629
+    second: PloymusA (4)_42
+  - first:
+      213: 1527686651394562053
+    second: PloymusA (4)_43
+  - first:
+      213: 4334838055149713351
+    second: PloymusA (4)_44
+  - first:
+      213: 9034547862865804625
+    second: PloymusA (4)_45
+  - first:
+      213: 1684102540663304499
+    second: PloymusA (4)_46
+  - first:
+      213: -5406050291663140714
+    second: PloymusA (4)_47
+  - first:
+      213: -5635416196611042830
+    second: PloymusA (4)_48
+  - first:
+      213: 2342646709791080172
+    second: PloymusA (4)_49
+  - first:
+      213: -2565333053180669976
+    second: PloymusA (4)_50
+  - first:
+      213: -8691872734232765363
+    second: PloymusA (4)_51
+  - first:
+      213: 3645045538449447967
+    second: PloymusA (4)_52
+  - first:
+      213: 3574196217003683192
+    second: PloymusA (4)_53
+  - first:
+      213: -7417014349468195298
+    second: PloymusA (4)_54
+  - first:
+      213: 8733467426954679820
+    second: PloymusA (4)_55
+  - first:
+      213: -8585596780259114108
+    second: PloymusA (4)_56
+  - first:
+      213: 2259544957738841933
+    second: PloymusA (4)_57
+  - first:
+      213: 4582984920544828420
+    second: PloymusA (4)_58
+  - first:
+      213: 1361713566946348911
+    second: PloymusA (4)_59
+  - first:
+      213: -8766384786202479102
+    second: PloymusA (4)_60
+  - first:
+      213: -7259029196681468723
+    second: PloymusA (4)_61
+  - first:
+      213: 1058097139413085635
+    second: PloymusA (4)_62
+  - first:
+      213: -1821521956840529637
+    second: PloymusA (4)_63
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Lumin
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PloymusA (4)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 161
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aab83cb704b0ace40800000000000000
+      internalID: 5677362651836156842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 161
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3048b2a092d05050800000000000000
+      internalID: 5787357039818195006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_2
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 161
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a281e1a74c3adcf40800000000000000
+      internalID: 5750432363479701546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_3
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 161
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebed6f45268adcdc0800000000000000
+      internalID: -3617049785422913858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_4
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 161
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34dd5886daf7e6f40800000000000000
+      internalID: 5723652559194152259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_5
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 161
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4eaae80b30046890800000000000000
+      internalID: -7465842028720771505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_6
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 161
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef6691aa5151fe70800000000000000
+      internalID: 9147181767866085344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_7
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 161
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4f51b673026ace40800000000000000
+      internalID: 5677458047269691213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 138
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfaf1850d0913faa0800000000000000
+      internalID: -6128527124203439365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_9
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 138
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ebcab81ea0a31eb0800000000000000
+      internalID: -4750276512346092568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_10
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 138
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d312436fc8d99910800000000000000
+      internalID: 1844743907620033495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_11
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 138
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e75e53d696605810800000000000000
+      internalID: 1752013053024425953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_12
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 138
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9097faebbe9e749d0800000000000000
+      internalID: -2790004245406975735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_13
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 138
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed2f00290ec3bae90800000000000000
+      internalID: -7013445059479538978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_14
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 138
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d536728100085b710800000000000000
+      internalID: 1708412371550561117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_15
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 138
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752f3cc7fb4e18bc0800000000000000
+      internalID: -3782490700931403177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 115
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00ed2b1e09ed503e0800000000000000
+      internalID: -2088018138373104128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_17
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 115
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22e93ee9977f6c1c0800000000000000
+      internalID: -4483624277271929310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_18
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 115
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6958e8f94ec19d170800000000000000
+      internalID: 8203619964487107990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_19
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 115
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 305a20fdc19bb98d0800000000000000
+      internalID: -2838471606475250429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_20
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 115
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f83d3f2c5024bcd0800000000000000
+      internalID: -2543372309255866127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_21
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 115
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2e457b46a77d1ae0800000000000000
+      internalID: -1576972738395550162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_22
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 115
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ad85afc51fb5180800000000000000
+      internalID: -9125434838296765902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_23
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 115
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 144f6b6eabe75f4c0800000000000000
+      internalID: -4254354931781798847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97764b952e5e93190800000000000000
+      internalID: -7982096104207128711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_25
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 92
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aab05ea257226e920800000000000000
+      internalID: 3019138486824668074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_26
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 92
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be35736b3cf146720800000000000000
+      internalID: 2838428590586418155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_27
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 92
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ce141957b552b250800000000000000
+      internalID: 5958919502926454471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_28
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 92
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61518fc2244f19910800000000000000
+      internalID: 1842522287630718230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_29
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 92
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92047fc321203f8e0800000000000000
+      internalID: -1660981560214077399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_30
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 92
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4501d5f7d933ddda0800000000000000
+      internalID: -5918517583755276204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_31
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 92
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41e15ef1a09492800800000000000000
+      internalID: 588081534182170132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 69
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58affe8d09d651330800000000000000
+      internalID: 3680968739327572613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_33
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 69
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32cfc1a463a1d7b0800000000000000
+      internalID: -5201196442029407683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_34
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 69
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 565950232d14e6230800000000000000
+      internalID: 3633914320372733285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_35
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 69
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecf68647a30757da0800000000000000
+      internalID: -5947724336509456434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_36
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 69
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff9fa53109ef0350800000000000000
+      internalID: 5985258621203619829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_37
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 69
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a00f507d880f4f40800000000000000
+      internalID: 5714795855725133985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_38
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 69
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f0bdc47b1cd6560800000000000000
+      internalID: 7308710763304783671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_39
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 69
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3fe22c1b8f0b58a0800000000000000
+      internalID: -6315436962310066373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 46
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88f97f53b4e5948a0800000000000000
+      internalID: -6320416924916801656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_41
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 46
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60d13b3cd0eb18600800000000000000
+      internalID: 468864802550390022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_42
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 46
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4d5b4dad9b671cc0800000000000000
+      internalID: -3740402640546472629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_43
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 46
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5089a785aee633510800000000000000
+      internalID: 1527686651394562053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_44
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 46
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c73b048e30782c30800000000000000
+      internalID: 4334838055149713351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_45
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 46
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d71680a69216d70800000000000000
+      internalID: 9034547862865804625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_46
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 46
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 331b19586522f5710800000000000000
+      internalID: 1684102540663304499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_47
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 46
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6988587f6e9d9f4b0800000000000000
+      internalID: -5406050291663140714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 23
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f1148fa3dafac1b0800000000000000
+      internalID: -5635416196611042830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_49
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 23
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceeb55b45c0c28020800000000000000
+      internalID: 2342646709791080172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_50
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 23
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ef099a0e2b166cd0800000000000000
+      internalID: -2565333053180669976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_51
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 23
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c172bbcc3406780800000000000000
+      internalID: -8691872734232765363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_52
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 23
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1cd66dda9dc59230800000000000000
+      internalID: 3645045538449447967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_53
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 23
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87dac00c5881a9130800000000000000
+      internalID: 3574196217003683192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_54
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 23
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1629f50fb8711990800000000000000
+      internalID: -7417014349468195298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_55
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 23
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0614195a52833970800000000000000
+      internalID: 8733467426954679820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4830bef7735d9d880800000000000000
+      internalID: -8585596780259114108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_57
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d477c00ea248b5f10800000000000000
+      internalID: 2259544957738841933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_58
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40cdb08e0880a9f30800000000000000
+      internalID: 4582984920544828420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_59
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 0
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6fcaa34647c5e210800000000000000
+      internalID: 1361713566946348911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_60
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2063306bb7b875680800000000000000
+      internalID: -8766384786202479102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_61
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 0
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc4ac95d76fb24b90800000000000000
+      internalID: -7259029196681468723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_62
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cde2940ebd1fae00800000000000000
+      internalID: 1058097139413085635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PloymusA (4)_63
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 0
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1122fb5e67a8b6e0800000000000000
+      internalID: -1821521956840529637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

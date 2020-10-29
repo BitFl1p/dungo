@@ -123,6 +123,7 @@ MonoBehaviour:
   moveSpeed: 5
   timeBetweenMove: 2
   timeToMove: 2
+  canMove: 0
 --- !u!114 &2854437814261769670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,8 +184,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
   m_Mass: 0.38484508
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_LinearDrag: 3
+  m_AngularDrag: 7
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -218,4 +219,4 @@ MonoBehaviour:
   - {x: -0.17410088, y: 0.31012863, z: 0}
   m_ShapePathHash: 1173036145
   m_Mesh: {fileID: 0}
-  m_InstanceId: 48380
+  m_InstanceId: 61732
