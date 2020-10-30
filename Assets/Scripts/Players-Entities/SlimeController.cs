@@ -14,6 +14,7 @@ public class SlimeController : MonoBehaviour
     private float timeToMoveCounter;
     private Vector3 moveDir;
     public bool canMove = true;
+    public CircleCollider2D view;
     //public float waitToReload;
     //private bool reloading;
     //private GameObject thePlayer;
