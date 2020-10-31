@@ -12,7 +12,8 @@ public class PlayerHealthManager : MonoBehaviour
     private float flashCount;
     private SpriteRenderer playerSprite;
     private SFXManager sfxMan;
-    
+    public bool invincible;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,7 @@ public class PlayerHealthManager : MonoBehaviour
         }
         if (flashActive)
         {
-            
+            invincible = true;
             flashCount -= Time.deltaTime;
             playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b,1f);
             if (flashCount <= 0) { flashActive = false; }
@@ -44,15 +45,22 @@ public class PlayerHealthManager : MonoBehaviour
             else
             {
                 playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
+                invincible = false;
             }
         }
     }
     public void HurtPlayer(int damage)
     {
-        playerCurrentHealth -= damage;
-        flashActive = true;
-        flashCount = flashLength;
-        sfxMan.playerHurt.Play();
+        if (!invincible)
+        {
+            playerCurrentHealth -= damage;
+            flashActive = true;
+            flashCount = flashLength;
+            sfxMan.playerHurt.Play();
+            invincible = true;
+        }
+        
+        
     }
 
     public void SetMaxHealth() { playerCurrentHealth = playerMaxHealth; }

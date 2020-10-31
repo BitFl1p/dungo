@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using CodeMonkey.Utils;
+
 
 public class UI_Inventory : MonoBehaviour
 {
     private Inventory inventory;
-    private Transform itemSlotContainer;
-    private Transform itemSlotTemplate;
+    private UnityEngine.Transform itemSlotContainer;
+    private UnityEngine.Transform itemSlotTemplate;
     private PlayerController player;
     public bool uIInventoryActive;
     public float moveSpeed;
@@ -61,7 +61,7 @@ public class UI_Inventory : MonoBehaviour
     }
     private void RefreshInventoryItems()
     {
-        foreach(Transform child in itemSlotContainer)
+        foreach(UnityEngine.Transform child in itemSlotContainer)
         {
             if (child == itemSlotTemplate) continue;
             Destroy(child.gameObject);

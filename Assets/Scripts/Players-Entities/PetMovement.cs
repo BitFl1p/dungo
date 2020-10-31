@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PetMovement : MonoBehaviour
 {
-    public Transform player;
+    public UnityEngine.Transform player;
     public Vector3 offset;
     private Rigidbody2D myRB;
     public float moveSpeed;
