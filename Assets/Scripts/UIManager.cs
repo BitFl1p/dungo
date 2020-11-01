@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public Animator healthBar;
-    public Text levelText;
+    
     public PlayerHealthManager playerHealth;
     private PlayerStats playerStats;
     // Start is called before the first frame update
@@ -30,6 +30,6 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         healthBar.SetFloat("Health", playerHealth.playerCurrentHealth);
-        levelText.text = "Lvl: " + playerStats.currentLevel;
+        
     }
 }

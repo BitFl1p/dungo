@@ -1,33 +1,26 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Inventory
+public class CraftableInventory : MonoBehaviour
 {
     public event EventHandler OnItemListChanged;
     public List<Item> itemList;
     private Action<Item> useItemAction;
-    public Inventory(Action<Item> useItemAction)
+    public CraftableInventory(Action<Item> useItemAction)
     {
         this.useItemAction = useItemAction;
-        itemList = new List<Item>();
-        AddItem(new Item { itemType = Item.ItemType.Rope, amount = 1 });
-        AddItem(new Item { itemType = Item.ItemType.Wood, amount = 3 });
-        AddItem(new Item { itemType = Item.ItemType.MetalOre, amount = 1 });
-        AddItem(new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 });
-
-
 
     }
-    public void AddItem(Item item)
+    public void AddCraftable(Item item)
     {
         if (item.IsStackable())
         {
             bool itemAlreadyInInventory = false;
-            foreach(Item inventoryItem in itemList)
+            foreach (Item inventoryItem in itemList)
             {
-                if(inventoryItem.itemType == item.itemType)
+                if (inventoryItem.itemType == item.itemType)
                 {
                     inventoryItem.amount += item.amount;
                     itemAlreadyInInventory = true;
@@ -42,12 +35,12 @@ public class Inventory
         {
             itemList.Add(item);
         }
-        
+
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
-    public void RemoveItem(Item item)
+    public void RemoveCraftable(Item item)
     {
-        
+
         if (item.IsStackable())
         {
             Item itemInInventory = null;
@@ -71,11 +64,12 @@ public class Inventory
 
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
-    public void UseItem(Item item)
+    public void ClearCraftables()
     {
-        useItemAction(item);
+        itemList.Clear();
     }
-    public List<Item> GetItemList()
+    
+    public List<Item> GetCraftableList()
     {
         return itemList;
     }

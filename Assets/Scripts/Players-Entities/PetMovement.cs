@@ -8,10 +8,13 @@ public class PetMovement : MonoBehaviour
     public Vector3 offset;
     private Rigidbody2D myRB;
     public float moveSpeed;
+    public int petNum;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,6 +25,7 @@ public class PetMovement : MonoBehaviour
         {
             transform.position = player.transform.position+offset;
         }
+        anim.SetInteger("PetNum", petNum);
         
     }
 }
