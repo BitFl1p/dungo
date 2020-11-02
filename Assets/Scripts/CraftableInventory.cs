@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class CraftableInventory : MonoBehaviour
+public class CraftableInventory
 {
-    public event EventHandler OnItemListChanged;
+    public event EventHandler OnCraftableListChanged;
     public List<Item> itemList;
     private Action<Item> useItemAction;
+    
+    
     public CraftableInventory(Action<Item> useItemAction)
     {
         this.useItemAction = useItemAction;
+        itemList = new List<Item>();
 
     }
     public void AddCraftable(Item item)
@@ -36,7 +39,7 @@ public class CraftableInventory : MonoBehaviour
             itemList.Add(item);
         }
 
-        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        OnCraftableListChanged?.Invoke(this, EventArgs.Empty);
     }
     public void RemoveCraftable(Item item)
     {
@@ -62,11 +65,13 @@ public class CraftableInventory : MonoBehaviour
             itemList.Remove(item);
         }
 
-        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        OnCraftableListChanged?.Invoke(this, EventArgs.Empty);
     }
     public void ClearCraftables()
     {
         itemList.Clear();
+        
+        
     }
     
     public List<Item> GetCraftableList()

@@ -9,6 +9,7 @@ TagManager:
   - SFX
   - Music
   - Audio
+  - Crafting
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,7 @@ using UnityEngine;
 [Serializable]
 public class Item 
 {
+
     public enum ItemType
     {
         Rope,
@@ -20,15 +21,82 @@ public class Item
         Iron,
         Brass,
         IronBlade,
+        IronSword,
         BrassCharm,
         BrassNecklace,
-        Steel,
-        SteelBlade,
-        SteelSword,
+        Silver,
+        SilverBlade,
+        SilverSword,
 
     }
     public ItemType itemType;
     public int amount;
+    public List<Item> retList;
+
+    public List<Item> GetRecipe(ItemType myItem)
+    {
+        
+        switch (myItem)
+        {
+
+            default:
+            case ItemType.Rope: 
+            case ItemType.Coal: 
+            case ItemType.MetalOre: 
+            case ItemType.Wood: 
+                return null;
+            case ItemType.Iron:
+            case ItemType.Brass:
+                return new List<Item>() { new Item { itemType = Item.ItemType.MetalOre, amount = 1 } };
+
+
+            case ItemType.RefinedOre:                      return new List<Item>() { new Item { itemType = Item.ItemType.MetalOre, amount = 2 } };
+            case ItemType.WoodenHandle:                    return new List<Item>() { new Item { itemType = Item.ItemType.Wood, amount = 1 } };
+            case ItemType.WoodenBlade:                     return new List<Item>() { new Item { itemType = Item.ItemType.Wood, amount = 2 } };
+            case ItemType.IronBlade:                       return new List<Item>() { new Item { itemType = Item.ItemType.Iron, amount = 2 } };
+            case ItemType.BrassCharm:                      return new List<Item>() { new Item { itemType = Item.ItemType.Brass, amount = 1 } };
+            case ItemType.Silver:                          return new List<Item>() { new Item { itemType = Item.ItemType.RefinedOre, amount = 2 } };
+            case ItemType.SilverBlade:                     return new List<Item>() { new Item { itemType = Item.ItemType.Silver, amount = 2 } };
+            case ItemType.BrassNecklace:                   return new List<Item>() { new Item { itemType = Item.ItemType.Brass, amount = 2 } };
+
+
+
+            case ItemType.WoodenSword:
+
+                if (retList != null) { retList.Clear(); }
+                retList = new List<Item>() { new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 } };
+                
+                retList.Add(new Item { itemType = Item.ItemType.WoodenBlade, amount = 1 });
+                retList.Add(new Item { itemType = Item.ItemType.Rope, amount = 1 });
+                return retList;
+            case ItemType.ReinforcedWoodSword:
+                if (retList != null) { retList.Clear(); }
+                retList = new List<Item>() { new Item { itemType = Item.ItemType.MetalOre, amount = 1 } };
+                
+                retList.Add(new Item { itemType = Item.ItemType.WoodenSword, amount = 1 });
+
+                return retList;
+            case ItemType.RefinedWoodSword:
+                if (retList != null) { retList.Clear(); }
+                retList = new List<Item>() { new Item { itemType = Item.ItemType.RefinedOre, amount = 1 } };
+                
+                retList.Add(new Item { itemType = Item.ItemType.ReinforcedWoodSword, amount = 1 });
+                return retList;
+            case ItemType.IronSword:
+                if (retList != null) { retList.Clear(); }
+                retList = new List<Item>() { new Item { itemType = Item.ItemType.IronBlade, amount = 1 } };
+                
+                retList.Add(new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 });
+                return retList;
+            case ItemType.SilverSword:
+                if (retList != null) { retList.Clear(); }
+                retList = new List<Item>() { new Item {itemType = Item.ItemType.SilverBlade, amount = 1 } };
+                
+                retList.Add(new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 });
+                return retList;
+        }
+    }
+    
     public Sprite GetSprite()
     {
         switch (itemType)
@@ -47,11 +115,12 @@ public class Item
             case ItemType.Iron:                  return ItemAssets.Instance.IronSprite;
             case ItemType.Brass:                 return ItemAssets.Instance.BrassSprite;
             case ItemType.IronBlade:             return ItemAssets.Instance.IronBladeSprite;
+            case ItemType.IronSword:             return ItemAssets.Instance.IronSwordSprite;
             case ItemType.BrassCharm:            return ItemAssets.Instance.BrassCharmSprite;
             case ItemType.BrassNecklace:         return ItemAssets.Instance.BrassNecklaceSprite;
-            case ItemType.Steel:                 return ItemAssets.Instance.SteelSprite;
-            case ItemType.SteelBlade:            return ItemAssets.Instance.SteelBladeSprite;
-            case ItemType.SteelSword:            return ItemAssets.Instance.SteelSwordSprite;
+            case ItemType.Silver:                return ItemAssets.Instance.SteelSprite;
+            case ItemType.SilverBlade:           return ItemAssets.Instance.SteelBladeSprite;
+            case ItemType.SilverSword:           return ItemAssets.Instance.SteelSwordSprite;
 
 
         }
@@ -64,7 +133,7 @@ public class Item
             case ItemType.Rope: 
             case ItemType.Coal: 
             case ItemType.MetalOre: 
-            case ItemType.Steel: 
+            case ItemType.Silver: 
             case ItemType.Wood:
             case ItemType.Iron:
             case ItemType.Brass:
@@ -78,7 +147,7 @@ public class Item
             case ItemType.IronBlade: 
             case ItemType.BrassCharm: 
             case ItemType.BrassNecklace: 
-            case ItemType.SteelBlade:
+            case ItemType.SilverBlade:
 
                 return false;
 

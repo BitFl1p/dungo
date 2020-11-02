@@ -28,8 +28,11 @@ public class PlayerController : MonoBehaviour
     public bool canMove;
     private SFXManager sfxMan;
     private Inventory inventory;
+    private CraftableInventory craftInventory;
     [SerializeField] private Vector2 mousePos;
     [SerializeField] private UI_Inventory uiInventory;
+    [SerializeField] private UICrafting uiCrafting;
+    [SerializeField] private CraftingItems craftItems;
     public Camera theCamera;
     [SerializeField] private float fifthHeight;
     [SerializeField] private float fifthWidth;
@@ -39,8 +42,13 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         inventory = new Inventory(UseItem);
+        craftInventory = new CraftableInventory(UseItem);
         uiInventory.SetInventory(inventory);
-        
+        uiCrafting.SetCraftInv(craftInventory);
+        craftItems.SetCraftInv(craftInventory);
+        craftItems.SetInv(inventory);
+        uiCrafting.RefreshCraftables();
+
         state = State.Normal;
         fifthHeight = theCamera.orthographicSize/3;
         fifthWidth = theCamera.orthographicSize * (Screen.width / Screen.height) / 3;

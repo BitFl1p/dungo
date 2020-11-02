@@ -59,7 +59,7 @@ public class UI_Inventory : MonoBehaviour
     {
         RefreshInventoryItems();
     }
-    private void RefreshInventoryItems()
+    public void RefreshInventoryItems()
     {
         foreach(UnityEngine.Transform child in itemSlotContainer)
         {
@@ -84,7 +84,7 @@ public class UI_Inventory : MonoBehaviour
             {
                 Item duplicateItem = new Item { itemType = item.itemType, amount = item.amount };
                 inventory.RemoveItem(item);
-                ItemWorld.DropItem(player.GetComponent<Transform>().transform.position, duplicateItem);
+                ItemWorld.DropItem(player.GetComponent<UnityEngine.Transform>().transform.position, duplicateItem);
             };
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize+offsetX, y * itemSlotCellSize+offsetY);
             Image image = itemSlotRectTransform.Find("Image").GetComponent<Image>();
@@ -100,10 +100,10 @@ public class UI_Inventory : MonoBehaviour
             }
             
             x++;
-            if (x > 5)
+            if (x > 4)
             {
                 x = -5;
-                y++;
+                y--;
             }
         }
     }

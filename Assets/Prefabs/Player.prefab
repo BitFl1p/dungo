@@ -154,7 +154,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.8125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!60 &3717750562072394961
@@ -209,8 +209,6 @@ MonoBehaviour:
   damageBurst: {fileID: 8114519365686956762, guid: 39548585f56981140a8bc9ef8ace62dc,
     type: 3}
   hitPoint: {fileID: 8303284326623698598}
-  damageNumber: {fileID: 8213264709800143376, guid: 37d6d2709effe66428835ecefc2d3d95,
-    type: 3}
   knockback: 1
 --- !u!1 &7611716144160738237
 GameObject:
@@ -228,6 +226,7 @@ GameObject:
   - component: {fileID: 380937885462695767}
   - component: {fileID: 7990299993020921099}
   - component: {fileID: 1382715968569267550}
+  - component: {fileID: 6985844799429437624}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -340,6 +339,7 @@ MonoBehaviour:
   playerMaxHealth: 5
   playerCurrentHealth: 5
   flashLength: 0.5
+  invincible: 0
 --- !u!95 &2498241102750471954
 Animator:
   serializedVersion: 3
@@ -443,7 +443,21 @@ MonoBehaviour:
   - {x: -0.32584688, y: 0.33898658, z: 0}
   m_ShapePathHash: -1978196989
   m_Mesh: {fileID: 0}
-  m_InstanceId: 28560
+  m_InstanceId: 31602
+--- !u!114 &6985844799429437624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7611716144160738237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4533c120478664a931648afb3cfc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  craftables: []
+  craftInv: {fileID: 0}
 --- !u!1 &8723829824290200838
 GameObject:
   m_ObjectHideFlags: 0

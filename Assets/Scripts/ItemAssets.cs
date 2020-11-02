@@ -9,7 +9,7 @@ public class ItemAssets : MonoBehaviour
     {
         Instance = this;
     }
-    public Transform pfItemWorld;
+    public UnityEngine.Transform pfItemWorld;
     public Sprite RopeSprite;
     public Sprite CoalSprite;
     public Sprite MetalOreSprite;
@@ -23,6 +23,7 @@ public class ItemAssets : MonoBehaviour
     public Sprite IronSprite;
     public Sprite BrassSprite;
     public Sprite IronBladeSprite;
+    public Sprite IronSwordSprite;
     public Sprite BrassCharmSprite;
     public Sprite BrassNecklaceSprite;
     public Sprite SteelSprite;

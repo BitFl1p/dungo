@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEditorInternal.VersionControl;
+using System.Linq;
 
 public class CraftingItems : MonoBehaviour
 {
@@ -9,21 +11,43 @@ public class CraftingItems : MonoBehaviour
     [SerializeField] private Inventory inv;
     public List<Item> craftables;
     [SerializeField] private CraftableInventory craftInv;
+    [SerializeField] private UICrafting uiCraft;
+
     private void Awake()
     {
-        craftables = craftInv.itemList;
+        //if(craftInv.itemList != null)
+        //{
+        //    craftables = craftInv.itemList;
+        //}
+    }
+    public void SetCraftInv(CraftableInventory craftInv)
+    {
+        this.craftInv = craftInv;
+        
+        
+    }
+    public void SetInv(Inventory inv)
+    {
+        this.inv = inv;
+
+
     }
 
     // Start is called before the first frame update
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+
         if (other.tag == "Crafting")
         {
-            craftInv.ClearCraftables();
-            if (CheckForItem(Item.ItemType.Wood,1))
+
+
+            if (craftInv != null) { craftInv.ClearCraftables(); }
+            
+
+            if (CheckForItem(Item.ItemType.Wood, 1))
             {
                 craftInv.AddCraftable(new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 });
+
 
             }
             if (CheckForItem(Item.ItemType.Wood, 2))
@@ -36,7 +60,7 @@ public class CraftingItems : MonoBehaviour
                 craftInv.AddCraftable(new Item { itemType = Item.ItemType.WoodenSword, amount = 1 });
 
             }
-            if (CheckForItem(Item.ItemType.WoodenSword, 1)&& CheckForItem(Item.ItemType.MetalOre, 1))
+            if (CheckForItem(Item.ItemType.WoodenSword, 1) && CheckForItem(Item.ItemType.MetalOre, 1))
             {
                 craftInv.AddCraftable(new Item { itemType = Item.ItemType.ReinforcedWoodSword, amount = 1 });
 
@@ -51,30 +75,33 @@ public class CraftingItems : MonoBehaviour
                 craftInv.AddCraftable(new Item { itemType = Item.ItemType.RefinedWoodSword, amount = 1 });
 
             }
+            uiCraft.RefreshCraftables();
         }
-        
+
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Crafting")
-        {
-            craftInv.ClearCraftables();
-        }
+        
+        craftInv.ClearCraftables();
+        uiCraft.RefreshCraftables();
+        
     }
     public void CraftItem(List<Item> itemsToRemove, List<Item> itemsToAdd)
     {
-        foreach(Item currentItem in itemsToRemove)
+        foreach (Item currentItem in itemsToRemove)
         {
             inv.RemoveItem(currentItem);
         }
         foreach (Item currentItem in itemsToAdd)
         {
             inv.AddItem(currentItem);
+            craftInv.RemoveCraftable(currentItem);
         }
+        
+        uiCraft.RefreshCraftables();
 
-        
-        
+
     }
     public bool CheckForItem(Item.ItemType requiredItemType, int quantity)
     {
@@ -92,6 +119,5 @@ public class CraftingItems : MonoBehaviour
         return false;
 
     }
-    
 }
 
