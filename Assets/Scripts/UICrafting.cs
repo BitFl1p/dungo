@@ -12,10 +12,7 @@ public class UICrafting : MonoBehaviour
     [SerializeField] private CraftingItems crafting;
     
     private CraftableInventory craftInv;
-    private void Awake()
-    {
-        craftInv = GetComponent<CraftableInventory>();
-    }
+    
     // Start is called before the first frame update
 
     public void SetCraftInv(CraftableInventory craftInv)
