@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public string[] dialogLines;
     public int currentLine;
     private PlayerController thePlayer;
+    public UI_Inventory inv;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (dialogActive) { inv.canOpenInv = false; } else { inv.canOpenInv = true; }
         if (dialogActive&&Input.GetKeyDown(KeyCode.E))
         {
             //dBox.SetActive(false);

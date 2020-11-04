@@ -27,7 +27,7 @@ public class Transform : MonoBehaviour
             animCount = 0.5f ;
             start = false;
         }
-        else if(go)
+        else if(go&&!start)
         {
             if (animCount > 0)
             {

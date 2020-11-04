@@ -31,7 +31,7 @@ public class Item
     }
     public ItemType itemType;
     public int amount;
-    public List<Item> retList;
+    
 
     public List<Item> GetRecipe(ItemType myItem)
     {
@@ -50,50 +50,54 @@ public class Item
                 return new List<Item>() { new Item { itemType = Item.ItemType.MetalOre, amount = 1 } };
 
 
-            case ItemType.RefinedOre:                      return new List<Item>() { new Item { itemType = Item.ItemType.MetalOre, amount = 2 } };
-            case ItemType.WoodenHandle:                    return new List<Item>() { new Item { itemType = Item.ItemType.Wood, amount = 1 } };
-            case ItemType.WoodenBlade:                     return new List<Item>() { new Item { itemType = Item.ItemType.Wood, amount = 2 } };
-            case ItemType.IronBlade:                       return new List<Item>() { new Item { itemType = Item.ItemType.Iron, amount = 2 } };
-            case ItemType.BrassCharm:                      return new List<Item>() { new Item { itemType = Item.ItemType.Brass, amount = 1 } };
-            case ItemType.Silver:                          return new List<Item>() { new Item { itemType = Item.ItemType.RefinedOre, amount = 2 } };
-            case ItemType.SilverBlade:                     return new List<Item>() { new Item { itemType = Item.ItemType.Silver, amount = 2 } };
-            case ItemType.BrassNecklace:                   return new List<Item>() { new Item { itemType = Item.ItemType.Brass, amount = 2 } };
+            case ItemType.RefinedOre:                       return new List<Item>() { new Item { itemType = Item.ItemType.MetalOre, amount = 2 } };
+            case ItemType.WoodenHandle:                     return new List<Item>() { new Item { itemType = Item.ItemType.Wood, amount = 1 } };
+            case ItemType.WoodenBlade:                      return new List<Item>() { new Item { itemType = Item.ItemType.Wood, amount = 2 } };
+            case ItemType.IronBlade:                        return new List<Item>() { new Item { itemType = Item.ItemType.Iron, amount = 2 } };
+            case ItemType.BrassCharm:                       return new List<Item>() { new Item { itemType = Item.ItemType.Brass, amount = 1 } };
+            case ItemType.Silver:                           return new List<Item>() { new Item { itemType = Item.ItemType.RefinedOre, amount = 2 } };
+            case ItemType.SilverBlade:                      return new List<Item>() { new Item { itemType = Item.ItemType.Silver, amount = 2 } };
+            case ItemType.BrassNecklace:                    return new List<Item>() { new Item { itemType = Item.ItemType.Brass, amount = 2 } };
 
 
 
-            case ItemType.WoodenSword:
+            case ItemType.WoodenSword:                      return new List<Item>()
+                                                                    {
+                                                                        new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 },
+                                                                        new Item { itemType = Item.ItemType.WoodenBlade, amount = 1 },
+                                                                        new Item { itemType = Item.ItemType.Rope, amount = 1 }
+                                                                    };
 
-                if (retList != null) { retList.Clear(); }
-                retList = new List<Item>() { new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 } };
                 
-                retList.Add(new Item { itemType = Item.ItemType.WoodenBlade, amount = 1 });
-                retList.Add(new Item { itemType = Item.ItemType.Rope, amount = 1 });
-                return retList;
-            case ItemType.ReinforcedWoodSword:
-                if (retList != null) { retList.Clear(); }
-                retList = new List<Item>() { new Item { itemType = Item.ItemType.MetalOre, amount = 1 } };
+            case ItemType.ReinforcedWoodSword:              return new List<Item>()
+                                                                    {
+                                                                        new Item { itemType = Item.ItemType.WoodenSword, amount = 1 },
+                                                                        new Item { itemType = Item.ItemType.MetalOre, amount = 1 },
+                                                                        
+                                                                    };
                 
-                retList.Add(new Item { itemType = Item.ItemType.WoodenSword, amount = 1 });
-
-                return retList;
-            case ItemType.RefinedWoodSword:
-                if (retList != null) { retList.Clear(); }
-                retList = new List<Item>() { new Item { itemType = Item.ItemType.RefinedOre, amount = 1 } };
+            case ItemType.RefinedWoodSword:                 return new List<Item>()
+                                                                    {
+                                                                        new Item { itemType = Item.ItemType.ReinforcedWoodSword, amount = 1 },
+                                                                        new Item { itemType = Item.ItemType.RefinedOre, amount = 1 },
+                                                                        
+                                                                    };
                 
-                retList.Add(new Item { itemType = Item.ItemType.ReinforcedWoodSword, amount = 1 });
-                return retList;
-            case ItemType.IronSword:
-                if (retList != null) { retList.Clear(); }
-                retList = new List<Item>() { new Item { itemType = Item.ItemType.IronBlade, amount = 1 } };
+            case ItemType.IronSword:                        return new List<Item>()
+                                                                    {
+                                                                        new Item { itemType = Item.ItemType.Iron, amount = 1 },
+                                                                        new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 },
+                                                                        
+                                                                    };
                 
-                retList.Add(new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 });
-                return retList;
-            case ItemType.SilverSword:
-                if (retList != null) { retList.Clear(); }
-                retList = new List<Item>() { new Item {itemType = Item.ItemType.SilverBlade, amount = 1 } };
                 
-                retList.Add(new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 });
-                return retList;
+            case ItemType.SilverSword:                      return new List<Item>()
+                                                                    {
+                                                                        new Item { itemType = Item.ItemType.SilverBlade, amount = 1 },
+                                                                        new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 },
+                                                                        
+                                                                    };
+                
         }
     }
     
@@ -148,6 +152,7 @@ public class Item
             case ItemType.BrassCharm: 
             case ItemType.BrassNecklace: 
             case ItemType.SilverBlade:
+            case ItemType.SilverSword:
 
                 return false;
 

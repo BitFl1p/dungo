@@ -12,6 +12,7 @@ public class CraftingItems : MonoBehaviour
     public List<Item> craftables;
     [SerializeField] private CraftableInventory craftInv;
     [SerializeField] private UICrafting uiCraft;
+    
 
     private void Awake()
     {
@@ -40,65 +41,43 @@ public class CraftingItems : MonoBehaviour
         if (other.tag == "Crafting")
         {
 
-
-            if (craftInv != null) { craftInv.ClearCraftables(); }
+            CheckCraftables();
             
+        }
 
-            if (CheckForItem(Item.ItemType.Wood, 1))
-            {
-                craftInv.AddCraftable(new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 });
+    }
 
-
-            }
-            if (CheckForItem(Item.ItemType.Wood, 2))
-            {
-
-                craftInv.AddCraftable(new Item { itemType = Item.ItemType.WoodenBlade, amount = 1 });
-            }
-            if (CheckForItem(Item.ItemType.WoodenHandle, 1) && CheckForItem(Item.ItemType.WoodenBlade, 1) && CheckForItem(Item.ItemType.Rope, 1))
-            {
-                craftInv.AddCraftable(new Item { itemType = Item.ItemType.WoodenSword, amount = 1 });
-
-            }
-            if (CheckForItem(Item.ItemType.WoodenSword, 1) && CheckForItem(Item.ItemType.MetalOre, 1))
-            {
-                craftInv.AddCraftable(new Item { itemType = Item.ItemType.ReinforcedWoodSword, amount = 1 });
-
-            }
-            if (CheckForItem(Item.ItemType.MetalOre, 2))
-            {
-                craftInv.AddCraftable(new Item { itemType = Item.ItemType.RefinedOre, amount = 1 });
-
-            }
-            if (CheckForItem(Item.ItemType.RefinedOre, 1) && CheckForItem(Item.ItemType.ReinforcedWoodSword, 2))
-            {
-                craftInv.AddCraftable(new Item { itemType = Item.ItemType.RefinedWoodSword, amount = 1 });
-
-            }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Crafting")
+        {
+            if (craftInv != null) { craftInv.ClearCraftables(); }
             uiCraft.RefreshCraftables();
         }
-
     }
 
-    private void OnTriggerExit(Collider other)
-    {
         
-        craftInv.ClearCraftables();
-        uiCraft.RefreshCraftables();
         
-    }
+
     public void CraftItem(List<Item> itemsToRemove, List<Item> itemsToAdd)
     {
-        foreach (Item currentItem in itemsToRemove)
+        for(int i = itemsToRemove.Count - 1; i >= 0; i--)
         {
-            inv.RemoveItem(currentItem);
+            Debug.Log(i);
+            inv.RemoveItem(itemsToRemove.ElementAt(i));
         }
+        //foreach (Item item in itemsToRemove)
+        //{
+        //    Debug.Log(item);
+        //    inv.RemoveItem(item);
+            
+        //}
         foreach (Item currentItem in itemsToAdd)
         {
             inv.AddItem(currentItem);
             craftInv.RemoveCraftable(currentItem);
         }
-        
+        CheckCraftables();
         uiCraft.RefreshCraftables();
 
 
@@ -118,6 +97,45 @@ public class CraftingItems : MonoBehaviour
         }
         return false;
 
+    }
+    public void CheckCraftables()
+    {
+        if (craftInv != null) { craftInv.ClearCraftables(); }
+
+
+        if (CheckForItem(Item.ItemType.Wood, 1))
+        {
+            craftInv.AddCraftable(new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 });
+
+
+        }
+        if (CheckForItem(Item.ItemType.Wood, 2))
+        {
+
+            craftInv.AddCraftable(new Item { itemType = Item.ItemType.WoodenBlade, amount = 1 });
+        }
+        if (CheckForItem(Item.ItemType.WoodenHandle, 1) && CheckForItem(Item.ItemType.WoodenBlade, 1) && CheckForItem(Item.ItemType.Rope, 1))
+        {
+            craftInv.AddCraftable(new Item { itemType = Item.ItemType.WoodenSword, amount = 1 });
+
+        }
+        if (CheckForItem(Item.ItemType.WoodenSword, 1) && CheckForItem(Item.ItemType.MetalOre, 1))
+        {
+            craftInv.AddCraftable(new Item { itemType = Item.ItemType.ReinforcedWoodSword, amount = 1 });
+
+        }
+        if (CheckForItem(Item.ItemType.MetalOre, 2))
+        {
+            craftInv.AddCraftable(new Item { itemType = Item.ItemType.RefinedOre, amount = 1 });
+
+        }
+        if (CheckForItem(Item.ItemType.RefinedOre, 1) && CheckForItem(Item.ItemType.ReinforcedWoodSword, 2))
+        {
+            craftInv.AddCraftable(new Item { itemType = Item.ItemType.RefinedWoodSword, amount = 1 });
+
+        }
+        uiCraft.RefreshCraftables();
+        
     }
 }
 

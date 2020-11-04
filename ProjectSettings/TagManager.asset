@@ -10,6 +10,7 @@ TagManager:
   - Music
   - Audio
   - Crafting
+  - Volumes
   layers:
   - Default
   - TransparentFX

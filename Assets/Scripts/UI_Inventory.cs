@@ -16,6 +16,7 @@ public class UI_Inventory : MonoBehaviour
     private RectTransform myRectTrans;
     private Vector2 myOffScreenPos;
     private Vector2 myOnScreenPos;
+    public bool canOpenInv;
 
     private void Awake()
     {
@@ -31,21 +32,28 @@ public class UI_Inventory : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (!canOpenInv) { myRectTrans.anchoredPosition = myOffScreenPos; uIInventoryActive = false; Time.timeScale = 1f; return; }
+        if (canOpenInv)
         {
-            
-            switch (uIInventoryActive)
+            if (Input.GetKeyDown(KeyCode.R))
             {
-                case true:
-                    myRectTrans.anchoredPosition = myOffScreenPos;
-                    uIInventoryActive = false;
-                    break;
-                case false:
-                    myRectTrans.anchoredPosition = myOnScreenPos;
-                    uIInventoryActive = true;
-                    break;
-            }
 
+                switch (uIInventoryActive)
+                {
+                    case true:
+                        myRectTrans.anchoredPosition = myOffScreenPos;
+
+                        uIInventoryActive = false;
+                        break;
+                    case false:
+                        myRectTrans.anchoredPosition = myOnScreenPos;
+
+                        uIInventoryActive = true;
+                        break;
+                }
+
+            }
+            if (uIInventoryActive) { Time.timeScale = 0.5f; player.canMove = false; } else { Time.timeScale = 1f; player.canMove = true; }
         }
     }
 
@@ -106,5 +114,6 @@ public class UI_Inventory : MonoBehaviour
                 y--;
             }
         }
+
     }
 }

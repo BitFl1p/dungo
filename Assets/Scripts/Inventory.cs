@@ -15,6 +15,7 @@ public class Inventory
         AddItem(new Item { itemType = Item.ItemType.Rope, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.Wood, amount = 3 });
         
+        
 
 
 
@@ -65,7 +66,15 @@ public class Inventory
         }
         else
         {
-            itemList.Remove(item);
+            Item itemInInventory = null;
+            foreach (Item inventoryItem in itemList)
+            {
+                if (inventoryItem.itemType == item.itemType)
+                {
+                    itemInInventory = inventoryItem; 
+                }
+            }
+            itemList.Remove(itemInInventory);
         }
 
         OnItemListChanged?.Invoke(this, EventArgs.Empty);

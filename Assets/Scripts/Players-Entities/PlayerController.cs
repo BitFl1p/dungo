@@ -1,6 +1,7 @@
 ﻿
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using UnityEditor.Events;
 using UnityEngine;
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float fifthHeight;
     [SerializeField] private float fifthWidth;
     private State state = State.Normal;
+    private bool containsWeapon;
     
     // Start is called before the first frame update
     private void Awake()
@@ -86,8 +88,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!canMove) { myRigidbody.velocity = Vector2.zero; return; }
         
+        if (!canMove) { myRigidbody.velocity = Vector2.zero; moveInput = Vector2.zero; anim.SetBool("PlayerMoving", false); return; }
+        checkWeapon();
         switch (state)
         {
 
@@ -181,7 +184,59 @@ public class PlayerController : MonoBehaviour
             
         }
     }
-    private void FixedUpdate()
+
+
+    private void checkWeapon()
+    {
+        containsWeapon = false;
+        if (CheckForItem(Item.ItemType.WoodenSword, 0))
+        {
+            containsWeapon = true;
+            anim.SetInteger("Weapon", 1);
+        }
+        else if (CheckForItem(Item.ItemType.ReinforcedWoodSword, 0))
+        {
+            containsWeapon = true;
+            anim.SetInteger("Weapon", 2);
+        }
+        else if (CheckForItem(Item.ItemType.RefinedWoodSword, 0))
+        {
+            containsWeapon = true;
+            anim.SetInteger("Weapon", 3);
+        }
+        else if (CheckForItem(Item.ItemType.IronSword, 0))
+        {
+            containsWeapon = true;
+            anim.SetInteger("Weapon", 4);
+        }
+        else if (CheckForItem(Item.ItemType.SilverSword, 0))
+        {
+            containsWeapon = true;
+            anim.SetInteger("Weapon", 5);
+        }
+        if (!containsWeapon)
+        {
+            anim.SetInteger("Weapon", 0);
+        }
+    }
+    public bool CheckForItem(Item.ItemType requiredItemType, int quantity)
+    {
+        foreach (Item item in inventory.GetItemList())
+        {
+            if (item.itemType == requiredItemType)
+            {
+                if (item.amount >= quantity)
+                {
+                    return true;
+                }
+            }
+
+        }
+        return false;
+    }
+
+
+        private void FixedUpdate()
     {
         myRigidbody.velocity = moveInput*speed;
     }
