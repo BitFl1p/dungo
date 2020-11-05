@@ -39,7 +39,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float fifthWidth;
     private State state = State.Normal;
     private bool containsWeapon;
-    
+    [HideInInspector] public float wepNum = 0;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
         uiCrafting.RefreshCraftables();
 
         state = State.Normal;
-        fifthHeight = theCamera.orthographicSize/3;
+        fifthHeight = theCamera.orthographicSize / 3;
         fifthWidth = theCamera.orthographicSize * (Screen.width / Screen.height) / 3;
         lastMove = new Vector2(0f, -1f);
         anim = GetComponent<Animator>();
@@ -74,7 +75,7 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
     private void UseItem(Item item)
     {
@@ -84,19 +85,19 @@ public class PlayerController : MonoBehaviour
             // inventory.RemoveItem(new Item { itemType = Item.ItemType.someShit, amount = 1 })
         }
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        
+
         if (!canMove) { myRigidbody.velocity = Vector2.zero; moveInput = Vector2.zero; anim.SetBool("PlayerMoving", false); return; }
         checkWeapon();
         switch (state)
         {
 
             case State.Normal:
-                
-                
+
+
                 anim.SetBool("PlayerAttacking", false);
                 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
                 if (moveInput != Vector2.zero)
@@ -144,9 +145,9 @@ public class PlayerController : MonoBehaviour
                     anim.SetBool("PlayerAttacking", true);
 
                     sfxMan.PlayerAttack.Play();
-                    
 
-                    
+
+
                     return;
                 }
                 break;
@@ -169,7 +170,7 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
         anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
         anim.SetBool("PlayerMoving", playerMoving);
-        
+
 
         playerMoving = false;
 
@@ -177,11 +178,11 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
-        if(itemWorld != null)
+        if (itemWorld != null)
         {
             inventory.AddItem(itemWorld.GetItem());
             itemWorld.DestroySelf();
-            
+
         }
     }
 
@@ -189,33 +190,39 @@ public class PlayerController : MonoBehaviour
     private void checkWeapon()
     {
         containsWeapon = false;
-        if (CheckForItem(Item.ItemType.WoodenSword, 0))
+        if (CheckForItem(Item.ItemType.WoodenSword, 0) && wepNum <= 1)
         {
+            wepNum = 1;
             containsWeapon = true;
             anim.SetInteger("Weapon", 1);
         }
-        else if (CheckForItem(Item.ItemType.ReinforcedWoodSword, 0))
+        else if (CheckForItem(Item.ItemType.ReinforcedWoodSword, 0) && wepNum <= 2)
         {
+            wepNum = 2;
             containsWeapon = true;
             anim.SetInteger("Weapon", 2);
         }
-        else if (CheckForItem(Item.ItemType.RefinedWoodSword, 0))
+        else if (CheckForItem(Item.ItemType.RefinedWoodSword, 0) && wepNum <= 3)
         {
+            wepNum = 3;
             containsWeapon = true;
             anim.SetInteger("Weapon", 3);
         }
-        else if (CheckForItem(Item.ItemType.IronSword, 0))
+        else if (CheckForItem(Item.ItemType.IronSword, 0) && wepNum <= 4)
         {
+            wepNum = 4;
             containsWeapon = true;
             anim.SetInteger("Weapon", 4);
         }
-        else if (CheckForItem(Item.ItemType.SilverSword, 0))
+        else if (CheckForItem(Item.ItemType.SilverSword, 0) && wepNum <= 5)
         {
+            wepNum = 5;
             containsWeapon = true;
             anim.SetInteger("Weapon", 5);
         }
-        if (!containsWeapon)
+        else if (!containsWeapon)
         {
+            wepNum = 0;
             anim.SetInteger("Weapon", 0);
         }
     }
@@ -236,9 +243,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
-        private void FixedUpdate()
+    private void FixedUpdate()
     {
-        myRigidbody.velocity = moveInput*speed;
+        myRigidbody.velocity = moveInput * speed;
     }
     public static Vector3 GetMouseWorldPosition()
     {

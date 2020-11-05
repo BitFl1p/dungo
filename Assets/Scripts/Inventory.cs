@@ -14,8 +14,9 @@ public class Inventory
         itemList = new List<Item>();
         AddItem(new Item { itemType = Item.ItemType.Rope, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.Wood, amount = 3 });
-        
-        
+        AddItem(new Item { itemType = Item.ItemType.MetalOre, amount = 3 });
+
+
 
 
 

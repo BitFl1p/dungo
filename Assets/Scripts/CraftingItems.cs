@@ -63,7 +63,7 @@ public class CraftingItems : MonoBehaviour
     {
         for(int i = itemsToRemove.Count - 1; i >= 0; i--)
         {
-            Debug.Log(i);
+            
             inv.RemoveItem(itemsToRemove.ElementAt(i));
         }
         //foreach (Item item in itemsToRemove)
@@ -74,7 +74,8 @@ public class CraftingItems : MonoBehaviour
         //}
         foreach (Item currentItem in itemsToAdd)
         {
-            inv.AddItem(currentItem);
+            Item.ItemType currentItemType = currentItem.itemType;
+            inv.AddItem(new Item { itemType = currentItemType, amount = 1});
             craftInv.RemoveCraftable(currentItem);
         }
         CheckCraftables();
@@ -129,7 +130,7 @@ public class CraftingItems : MonoBehaviour
             craftInv.AddCraftable(new Item { itemType = Item.ItemType.RefinedOre, amount = 1 });
 
         }
-        if (CheckForItem(Item.ItemType.RefinedOre, 1) && CheckForItem(Item.ItemType.ReinforcedWoodSword, 2))
+        if (CheckForItem(Item.ItemType.RefinedOre, 1) && CheckForItem(Item.ItemType.ReinforcedWoodSword, 1))
         {
             craftInv.AddCraftable(new Item { itemType = Item.ItemType.RefinedWoodSword, amount = 1 });
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class CameraController : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class CameraController : MonoBehaviour
         
         halfHeight = theCamera.orthographicSize;
         halfWidth = halfHeight * (Screen.width / Screen.height);
+        //GetComponent<PixelPerfectCamera>().refResolutionX = Screen.width/2;
+        //GetComponent<PixelPerfectCamera>().refResolutionY = Screen.height/2;
     }
 
     // Update is called once per frame
