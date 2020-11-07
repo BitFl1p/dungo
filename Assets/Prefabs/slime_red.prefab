@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 2241060162955130085}
   - component: {fileID: 2241060162955130084}
   - component: {fileID: 2241060162955130107}
-  - component: {fileID: 2241060162955130105}
   - component: {fileID: 2854437814261769670}
   - component: {fileID: 8594189392261949246}
   - component: {fileID: 2241060162955130106}
   - component: {fileID: 2241060162955130104}
   - component: {fileID: 2920696354463647386}
+  - component: {fileID: 5840617529583492423}
   m_Layer: 0
   m_Name: slime_red
   m_TagString: Enemy
@@ -108,22 +108,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2241060162955130105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2241060162955130087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 091fb916533485b4d920b85ade00489e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  timeBetweenMove: 2
-  timeToMove: 2
-  canMove: 0
 --- !u!114 &2854437814261769670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,8 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  damageNumber: {fileID: 8213264709800143376, guid: 37d6d2709effe66428835ecefc2d3d95,
-    type: 3}
+  knockback: 1
 --- !u!114 &8594189392261949246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,4 +202,19 @@ MonoBehaviour:
   - {x: -0.17410088, y: 0.31012863, z: 0}
   m_ShapePathHash: 1173036145
   m_Mesh: {fileID: 0}
-  m_InstanceId: 61732
+  m_InstanceId: 24328
+--- !u!114 &5840617529583492423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2241060162955130087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4249afddb721f4ea4db5f96092f1e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 200
+  nextWaypointDistance: 3

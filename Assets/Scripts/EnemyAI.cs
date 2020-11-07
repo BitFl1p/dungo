@@ -7,14 +7,18 @@ public class EnemyAI : MonoBehaviour
     public UnityEngine.Transform target;
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
+    
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
     Seeker seeker;
     Rigidbody2D rb;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+        
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         
@@ -33,7 +37,9 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(path == null)
+        
+
+        if (path == null)
         {
             return;
         }
@@ -61,6 +67,15 @@ public class EnemyAI : MonoBehaviour
         {
             path = p;
             currentWaypoint = 0;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Swing")
+        {
+            Vector3 force = new Vector3(transform.position.x - other.transform.position.x, transform.position.y - other.transform.position.y).normalized * other.GetComponent<HurtEnemy>().knockback;
+
+            rb.AddForce(force, ForceMode2D.Impulse);
         }
     }
 }

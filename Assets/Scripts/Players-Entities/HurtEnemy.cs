@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class HurtEnemy : MonoBehaviour
 {
-    public int damage;
+    public int damage = 1;
     public GameObject damageBurst;
     public UnityEngine.Transform hitPoint;
-    
+    public PlayerController thePlayer;
     public float knockback = 1f;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        thePlayer = GetComponentInParent<PlayerController>();
+        knockback = thePlayer.knockback;
+        damage = thePlayer.damage;
     }
 
     // Update is called once per frame
@@ -25,11 +28,7 @@ public class HurtEnemy : MonoBehaviour
             other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(damage);
             Instantiate(damageBurst, hitPoint.transform.position, hitPoint.transform.rotation);
             
-            Vector3 direction = (other.transform.position - transform.position) * knockback * 10;
-            direction.Normalize();
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(direction, ForceMode2D.Impulse);
-            other.gameObject.GetComponent<SlimeController>().canMove = true;
-
+            
 
         }
     }

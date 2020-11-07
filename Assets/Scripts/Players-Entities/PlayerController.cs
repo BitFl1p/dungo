@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Text;
 using UnityEditor.Events;
 using UnityEngine;
+using TMPro;
 
 
 
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
 {
     private enum State
     {
-        Normal, Attacking,
+        Normal, Attacking, Dashing
     }
     private float currentMoveSpeed;
     private Animator anim;
@@ -40,6 +41,14 @@ public class PlayerController : MonoBehaviour
     private State state = State.Normal;
     private bool containsWeapon;
     [HideInInspector] public float wepNum = 0;
+    public float knockback;
+    public int damage;
+    public float dashDistance = 3f;
+    public float dashMaxCount = 2; public float dashCount;
+    public Vector2 lastDir;
+    public float dashCooldown; public float dashCooldownCount;
+    public GameObject dashEffect;
+    
 
     // Start is called before the first frame update
     private void Awake()
@@ -107,34 +116,10 @@ public class PlayerController : MonoBehaviour
                     lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
                 }
                 else { myRigidbody.velocity = Vector2.zero; }
-                Vector3 mousePos = GetMouseWorldPosition();
+                
                 if (Input.GetMouseButtonDown(0))
                 {
-                    if (mousePos.y > fifthHeight + transform.position.y)
-                    {
-                        lastMove.y = 1;
-                    }
-                    else if (mousePos.y < -fifthHeight + transform.position.y)
-                    {
-                        lastMove.y = -1;
-                    }
-                    else if (mousePos.y > -fifthHeight * 2 + transform.position.y && mousePos.y < fifthHeight * 2 + transform.position.y)
-                    {
-                        lastMove.y = 0;
-                    }
-
-                    if (mousePos.x > fifthWidth + transform.position.x)
-                    {
-                        lastMove.x = 1;
-                    }
-                    else if (mousePos.x < -fifthWidth + transform.position.x)
-                    {
-                        lastMove.x = -1;
-                    }
-                    else if (mousePos.x > -fifthWidth * 2 + transform.position.x && mousePos.x < fifthWidth * 2 + transform.position.x)
-                    {
-                        lastMove.x = 0;
-                    }
+                    SetLastMoveToMouse();
                     myRigidbody.velocity = Vector2.zero;
                     anim.SetFloat("LastMoveX", lastMove.x);
                     anim.SetFloat("LastMoveY", lastMove.y);
@@ -150,6 +135,24 @@ public class PlayerController : MonoBehaviour
 
                     return;
                 }
+                if (dashCooldownCount > 0) { dashCooldownCount -= Time.deltaTime; }
+                if (Input.GetMouseButtonDown(1))
+                {
+                    if(dashCooldownCount <= 0)
+                    {
+                        //StartCoroutine(theCamera.GetComponentInParent<CameraShake>().Shake(0.15f,1f));
+                        GameObject newDash = Instantiate(dashEffect);
+                        newDash.GetComponent<ParticleSystem>().Play();
+                        newDash.transform.position = transform.position;
+                        SetLastMoveToMouse();
+                        lastDir = lastMove;
+                        dashCount = dashMaxCount;
+                        state = State.Dashing;
+                        myRigidbody.velocity = Vector2.zero; moveInput = Vector2.zero; anim.SetBool("PlayerMoving", false);
+                    }
+                    
+                    return;
+                }
                 break;
             case State.Attacking:
                 playerMoving = false;
@@ -158,6 +161,26 @@ public class PlayerController : MonoBehaviour
                 if (attackTimeCounter <= 0) { state = State.Normal; anim.SetBool("PlayerAttacking", false); }
                 anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
                 anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
+                break;
+            case State.Dashing:
+
+                if(dashCount > 0)
+                {
+                    dashCooldownCount = dashCooldown;
+                    dashCount -= Time.deltaTime;
+                    moveInput = lastDir.normalized * dashDistance;
+                    
+                }
+                else if (dashCount <= 0)
+                {
+                    myRigidbody.velocity = Vector2.zero;
+                    state = State.Normal;
+                    canMove = true;
+                }
+                
+                
+                
+
                 break;
         }
 
@@ -192,36 +215,48 @@ public class PlayerController : MonoBehaviour
         containsWeapon = false;
         if (CheckForItem(Item.ItemType.WoodenSword, 0) && wepNum <= 1)
         {
+            knockback = 2;
+            damage = 1;
             wepNum = 1;
             containsWeapon = true;
             anim.SetInteger("Weapon", 1);
         }
         else if (CheckForItem(Item.ItemType.ReinforcedWoodSword, 0) && wepNum <= 2)
         {
+            knockback = 2;
+            damage = 2;
             wepNum = 2;
             containsWeapon = true;
             anim.SetInteger("Weapon", 2);
         }
         else if (CheckForItem(Item.ItemType.RefinedWoodSword, 0) && wepNum <= 3)
         {
+            knockback = 2;
+            damage = 3;
             wepNum = 3;
             containsWeapon = true;
             anim.SetInteger("Weapon", 3);
         }
         else if (CheckForItem(Item.ItemType.IronSword, 0) && wepNum <= 4)
         {
+            knockback = 3;
+            damage = 3;
             wepNum = 4;
             containsWeapon = true;
             anim.SetInteger("Weapon", 4);
         }
         else if (CheckForItem(Item.ItemType.SilverSword, 0) && wepNum <= 5)
         {
+            knockback = 3;
+            damage = 4;
             wepNum = 5;
             containsWeapon = true;
             anim.SetInteger("Weapon", 5);
         }
         else if (!containsWeapon)
         {
+            knockback = 1;
+            damage = 1;
             wepNum = 0;
             anim.SetInteger("Weapon", 0);
         }
@@ -242,7 +277,7 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
-
+    
     private void FixedUpdate()
     {
         myRigidbody.velocity = moveInput * speed;
@@ -265,5 +300,40 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
         return worldPosition;
+    }
+    public void SetLastMoveToMouse()
+    {
+        Vector3 mousePos = GetMouseWorldPosition();
+
+
+        if (mousePos.y > fifthHeight + transform.position.y)
+        {
+            lastMove.y = 1;
+        }
+        else if (mousePos.y < -fifthHeight + transform.position.y)
+        {
+            lastMove.y = -1;
+        }
+        else if (mousePos.y > -fifthHeight * 2 + transform.position.y && mousePos.y < fifthHeight * 2 + transform.position.y)
+        {
+            lastMove.y = 0;
+        }
+
+        if (mousePos.x > fifthWidth + transform.position.x)
+        {
+            lastMove.x = 1;
+        }
+        else if (mousePos.x < -fifthWidth + transform.position.x)
+        {
+            lastMove.x = -1;
+        }
+        else if (mousePos.x > -fifthWidth * 2 + transform.position.x && mousePos.x < fifthWidth * 2 + transform.position.x)
+        {
+            lastMove.x = 0;
+        }
+        if(lastMove.x == 0 && lastMove.y == 0)
+        {
+            lastMove.y = -1;
+        }
     }
 }

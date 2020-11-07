@@ -11,6 +11,8 @@ TagManager:
   - Audio
   - Crafting
   - Volumes
+  - Swing
+  - Shaker
   layers:
   - Default
   - TransparentFX
