@@ -29,4 +29,8 @@ public class ItemAssets : MonoBehaviour
     public Sprite SteelSprite;
     public Sprite SteelBladeSprite;
     public Sprite SteelSwordSprite;
+    public Sprite RubyNecklaceSprite;
+    public Sprite RubySprite;
+    public Sprite EmbroidedSwordSprite;
+    public Sprite EmeraldSprite;
 }

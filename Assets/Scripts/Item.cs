@@ -23,10 +23,14 @@ public class Item
         IronBlade,
         IronSword,
         BrassCharm,
+        Ruby,
         BrassNecklace,
+        RubyNecklace,
         Silver,
         SilverBlade,
         SilverSword,
+        Emerald,
+        EmbroidedSword,
 
     }
     public ItemType itemType;
@@ -97,7 +101,18 @@ public class Item
                                                                         new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 },
                                                                         
                                                                     };
-                
+            case ItemType.RubyNecklace:                     return new List<Item>()
+                                                                    {
+                                                                        new Item { itemType = Item.ItemType.BrassNecklace, amount = 1 },
+                                                                        new Item { itemType = Item.ItemType.Ruby, amount = 1 },
+                                                                    };
+            case ItemType.EmbroidedSword:
+                return new List<Item>()
+                                                                    {
+                                                                        new Item { itemType = Item.ItemType.SilverSword, amount = 1 },
+                                                                        new Item { itemType = Item.ItemType.Emerald, amount = 1 },
+                                                                    };
+
         }
     }
     
@@ -125,6 +140,10 @@ public class Item
             case ItemType.Silver:                return ItemAssets.Instance.SteelSprite;
             case ItemType.SilverBlade:           return ItemAssets.Instance.SteelBladeSprite;
             case ItemType.SilverSword:           return ItemAssets.Instance.SteelSwordSprite;
+            case ItemType.RubyNecklace:          return ItemAssets.Instance.RubyNecklaceSprite;
+            case ItemType.Ruby:                  return ItemAssets.Instance.RubySprite;
+            case ItemType.Emerald:               return ItemAssets.Instance.EmeraldSprite;
+            case ItemType.EmbroidedSword:        return ItemAssets.Instance.EmbroidedSwordSprite;
 
 
         }
@@ -134,6 +153,7 @@ public class Item
         switch (itemType)
         {
             default:
+            case ItemType.Emerald:
             case ItemType.Rope: 
             case ItemType.Coal: 
             case ItemType.MetalOre: 
@@ -142,8 +162,9 @@ public class Item
             case ItemType.Iron:
             case ItemType.Brass:
             case ItemType.RefinedOre:
+            case ItemType.Ruby:
                 return true;
-            
+            case ItemType.EmbroidedSword:
             case ItemType.WoodenHandle: 
             case ItemType.WoodenBlade: 
             case ItemType.ReinforcedWoodSword: 
@@ -153,6 +174,7 @@ public class Item
             case ItemType.BrassNecklace: 
             case ItemType.SilverBlade:
             case ItemType.SilverSword:
+            case ItemType.RubyNecklace:
 
                 return false;
 

@@ -6,14 +6,13 @@ using System.Text;
 using UnityEditor.Events;
 using UnityEngine;
 using TMPro;
-
-
+using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
     private enum State
     {
-        Normal, Attacking, Dashing
+        Normal, Attacking, Chattacking, Dashing
     }
     private float currentMoveSpeed;
     private Animator anim;
@@ -48,11 +47,19 @@ public class PlayerController : MonoBehaviour
     public Vector2 lastDir;
     public float dashCooldown; public float dashCooldownCount;
     public GameObject dashEffect;
-    
+    public bool canDash;
+    float chargeTime; float chargeClock=0.5f; bool spriteWhite;
+    private SpriteRenderer myRenderer;
+    private Shader shaderGUItext;
+    private Shader shaderSpritesDefault;
+    float timeSinceAttack;
+    bool canChattack;
+
 
     // Start is called before the first frame update
     private void Awake()
     {
+        
         inventory = new Inventory(UseItem);
         craftInventory = new CraftableInventory(UseItem);
         uiInventory.SetInventory(inventory);
@@ -60,14 +67,16 @@ public class PlayerController : MonoBehaviour
         craftItems.SetCraftInv(craftInventory);
         craftItems.SetInv(inventory);
         uiCrafting.RefreshCraftables();
-
+        myRenderer = gameObject.GetComponent<SpriteRenderer>();
+        shaderGUItext = Shader.Find("GUI/Text Shader");
+        shaderSpritesDefault = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default"); // or whatever sprite shader is being used
         state = State.Normal;
         fifthHeight = theCamera.orthographicSize / 3;
         fifthWidth = theCamera.orthographicSize * (Screen.width / Screen.height) / 3;
         lastMove = new Vector2(0f, -1f);
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
-
+        normalSprite();
         sfxMan = FindObjectOfType<SFXManager>();
         if (GameObject.FindGameObjectsWithTag("Player").Length > 1)
         {
@@ -98,9 +107,77 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckGear();
+        timeSinceAttack += Time.deltaTime;
+        if (Input.GetMouseButton(0)&&timeSinceAttack>=0.5)
+        {
+            anim.SetBool("PlayerAttacking", false);
+            anim.SetBool("PlayerChattacking", false);
+            canMove = false;
+            chargeTime += Time.deltaTime;
+            if (chargeTime > chargeClock)
+            {
+                chargeClock += 0.5f;
+                switch (spriteWhite)
+                {
+                    case true:
+                        normalSprite();
+                        spriteWhite = false;
+                        break;
+                    case false:
+                        spriteWhite = true;
+                        whiteSprite();
+                        break;
+                }
+            }
+            if (chargeTime >= 2.5f)
+            {
+                //gonna play a little animation here so signify that the player is ready to do the big attack
+            }
+            
 
-        if (!canMove) { myRigidbody.velocity = Vector2.zero; moveInput = Vector2.zero; anim.SetBool("PlayerMoving", false); return; }
-        checkWeapon();
+
+
+
+            
+        }
+        if (chargeTime >= 1f && Input.GetMouseButtonUp(0)&&canChattack)
+        {
+            chargeTime = 0f;
+            normalSprite();
+            chargeClock = 0.5f;
+            SetLastMoveToMouse();
+            myRigidbody.velocity = Vector2.zero;
+            anim.SetFloat("LastMoveX", lastMove.x);
+            anim.SetFloat("LastMoveY", lastMove.y);
+            attackTimeCounter = attackTime;
+            state = State.Chattacking;
+            sfxMan.PlayerAttack.Play();
+            damage = 6;
+            knockback = 4;
+            myRigidbody.velocity = Vector2.zero;
+            anim.SetBool("PlayerChattacking", true);
+            timeSinceAttack=0;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            chargeTime = 0f;
+            normalSprite();
+            chargeClock = 0.5f;
+            SetLastMoveToMouse();
+            myRigidbody.velocity = Vector2.zero;
+            anim.SetFloat("LastMoveX", lastMove.x);
+            anim.SetFloat("LastMoveY", lastMove.y);
+
+            attackTimeCounter = attackTime;
+            state = State.Attacking;
+            myRigidbody.velocity = Vector2.zero;
+            anim.SetBool("PlayerAttacking", true);
+            timeSinceAttack = 0;
+            sfxMan.PlayerAttack.Play();
+        }
+        if (!canMove) { myRigidbody.velocity = Vector2.zero; moveInput = Vector2.zero; anim.SetBool("PlayerMoving", false);return; }
+        
         switch (state)
         {
 
@@ -117,30 +194,13 @@ public class PlayerController : MonoBehaviour
                 }
                 else { myRigidbody.velocity = Vector2.zero; }
                 
-                if (Input.GetMouseButtonDown(0))
-                {
-                    SetLastMoveToMouse();
-                    myRigidbody.velocity = Vector2.zero;
-                    anim.SetFloat("LastMoveX", lastMove.x);
-                    anim.SetFloat("LastMoveY", lastMove.y);
-
-                    attackTimeCounter = attackTime;
-                    state = State.Attacking;
-                    myRigidbody.velocity = Vector2.zero;
-                    anim.SetBool("PlayerAttacking", true);
-
-                    sfxMan.PlayerAttack.Play();
-
-
-
-                    return;
-                }
+                
                 if (dashCooldownCount > 0) { dashCooldownCount -= Time.deltaTime; }
                 if (Input.GetMouseButtonDown(1))
                 {
-                    if(dashCooldownCount <= 0)
+                    if(dashCooldownCount <= 0&&canDash)
                     {
-                        //StartCoroutine(theCamera.GetComponentInParent<CameraShake>().Shake(0.15f,1f));
+                        StartCoroutine(theCamera.GetComponentInParent<CameraShake>().Shake(0.15f,0.1f));
                         GameObject newDash = Instantiate(dashEffect);
                         newDash.GetComponent<ParticleSystem>().Play();
                         newDash.transform.position = transform.position;
@@ -177,10 +237,14 @@ public class PlayerController : MonoBehaviour
                     state = State.Normal;
                     canMove = true;
                 }
-                
-                
-                
-
+                break;
+            case State.Chattacking:
+                playerMoving = false;
+                moveInput = Vector2.zero;
+                if (attackTimeCounter > 0) { attackTimeCounter -= Time.deltaTime * 2; }
+                if (attackTimeCounter <= 0) { state = State.Normal; anim.SetBool("PlayerChattacking", false); }
+                anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
+                anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
                 break;
         }
 
@@ -210,11 +274,21 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void checkWeapon()
+    private void CheckGear()
     {
+        if (CheckForItem(Item.ItemType.RubyNecklace, 0))
+        {
+            canDash = true;
+        }
+        else
+        {
+            canDash = false;
+        }
+        
         containsWeapon = false;
         if (CheckForItem(Item.ItemType.WoodenSword, 0) && wepNum <= 1)
         {
+            canChattack = false;
             knockback = 2;
             damage = 1;
             wepNum = 1;
@@ -223,6 +297,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (CheckForItem(Item.ItemType.ReinforcedWoodSword, 0) && wepNum <= 2)
         {
+            canChattack = false;
             knockback = 2;
             damage = 2;
             wepNum = 2;
@@ -231,6 +306,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (CheckForItem(Item.ItemType.RefinedWoodSword, 0) && wepNum <= 3)
         {
+            canChattack = false;
             knockback = 2;
             damage = 3;
             wepNum = 3;
@@ -239,6 +315,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (CheckForItem(Item.ItemType.IronSword, 0) && wepNum <= 4)
         {
+            canChattack = false;
             knockback = 3;
             damage = 3;
             wepNum = 4;
@@ -247,14 +324,25 @@ public class PlayerController : MonoBehaviour
         }
         else if (CheckForItem(Item.ItemType.SilverSword, 0) && wepNum <= 5)
         {
+            canChattack = false;
             knockback = 3;
             damage = 4;
             wepNum = 5;
             containsWeapon = true;
             anim.SetInteger("Weapon", 5);
         }
+        else if(CheckForItem(Item.ItemType.EmbroidedSword,0)&& wepNum <= 6)
+        {
+            canChattack = true;
+            knockback = 3;
+            damage = 4;
+            wepNum = 6;
+            containsWeapon = true;
+            anim.SetInteger("Weapon", 6);
+        }
         else if (!containsWeapon)
         {
+            canChattack = false;
             knockback = 1;
             damage = 1;
             wepNum = 0;
@@ -280,6 +368,7 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate()
     {
+        myRigidbody.velocity = Vector3.zero;
         myRigidbody.velocity = moveInput * speed;
     }
     public static Vector3 GetMouseWorldPosition()
@@ -335,5 +424,15 @@ public class PlayerController : MonoBehaviour
         {
             lastMove.y = -1;
         }
+    }
+    void whiteSprite()
+    {
+        myRenderer.material.shader = shaderGUItext;
+        myRenderer.color = Color.white;
+    }
+    void normalSprite()
+    {
+        myRenderer.material.shader = shaderSpritesDefault;
+        myRenderer.color = Color.white;
     }
 }

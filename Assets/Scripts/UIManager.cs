@@ -39,28 +39,41 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         healthBar.SetFloat("Health", playerHealth.playerCurrentHealth);
-        if(playerController.dashCooldownCount > 0)
+        if (playerController.canDash)
         {
-            buttonToPress.gameObject.SetActive(false);
-            if(playerController.dashCooldownCount> 0 && playerController.dashCooldownCount < 1)
+            seconds.gameObject.SetActive(true);
+            buttonToPress.gameObject.SetActive(true);
+            icon.gameObject.SetActive(true);
+            if (playerController.dashCooldownCount > 0)
             {
-                seconds.GetComponent<TextMeshProUGUI>().text = "1";
+                buttonToPress.gameObject.SetActive(false);
+                if (playerController.dashCooldownCount > 0 && playerController.dashCooldownCount < 1)
+                {
+                    seconds.GetComponent<TextMeshProUGUI>().text = "1";
+                }
+                else if (playerController.dashCooldownCount > 1 && playerController.dashCooldownCount < 2)
+                {
+                    seconds.GetComponent<TextMeshProUGUI>().text = "2";
+                }
+                else if (playerController.dashCooldownCount > 2 && playerController.dashCooldownCount < 3)
+                {
+                    seconds.GetComponent<TextMeshProUGUI>().text = "3";
+                }
+
             }
-            else if (playerController.dashCooldownCount > 1 && playerController.dashCooldownCount < 2)
+            else
             {
-                seconds.GetComponent<TextMeshProUGUI>().text = "2";
+                buttonToPress.gameObject.SetActive(true);
+                seconds.GetComponent<TextMeshProUGUI>().text = "0";
             }
-            else if (playerController.dashCooldownCount > 2 && playerController.dashCooldownCount < 3)
-            {
-                seconds.GetComponent<TextMeshProUGUI>().text = "3";
-            }
-        
         }
         else
         {
-            buttonToPress.gameObject.SetActive(true);
-            seconds.GetComponent<TextMeshProUGUI>().text = "0";
+            seconds.gameObject.SetActive(false);
+            buttonToPress.gameObject.SetActive(false);
+            icon.gameObject.SetActive(false);
         }
+        
 
     }
 }

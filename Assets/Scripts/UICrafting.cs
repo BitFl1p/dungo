@@ -54,7 +54,7 @@ public class UICrafting : MonoBehaviour
                 image.sprite = item.GetSprite();
 
 
-                y++;
+                y--;
             }
     }
         

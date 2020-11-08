@@ -135,6 +135,16 @@ public class CraftingItems : MonoBehaviour
             craftInv.AddCraftable(new Item { itemType = Item.ItemType.RefinedWoodSword, amount = 1 });
 
         }
+        if (CheckForItem(Item.ItemType.Ruby, 1) && CheckForItem(Item.ItemType.BrassNecklace, 1))
+        {
+            craftInv.AddCraftable(new Item { itemType = Item.ItemType.RubyNecklace, amount = 1 });
+
+        }
+        if (CheckForItem(Item.ItemType.SilverSword, 1) && CheckForItem(Item.ItemType.Emerald, 1))
+        {
+            craftInv.AddCraftable(new Item { itemType = Item.ItemType.EmbroidedSword, amount = 1 });
+
+        }
         uiCraft.RefreshCraftables();
         
     }

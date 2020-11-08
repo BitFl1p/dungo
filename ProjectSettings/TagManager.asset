@@ -13,6 +13,7 @@ TagManager:
   - Volumes
   - Swing
   - Shaker
+  - ItemAssets
   layers:
   - Default
   - TransparentFX

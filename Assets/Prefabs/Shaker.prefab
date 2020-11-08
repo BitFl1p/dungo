@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3071073333272253681}
   - component: {fileID: 3071073333272253680}
+  - component: {fileID: 6376023034216558263}
   m_Layer: 0
   m_Name: Shaker
   m_TagString: Untagged
@@ -45,6 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTag: Shaker
+--- !u!114 &6376023034216558263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3071073333272253686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da518c7b3d29cc4bab1afd4e763bc07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3439265921295823400
 GameObject:
   m_ObjectHideFlags: 0
