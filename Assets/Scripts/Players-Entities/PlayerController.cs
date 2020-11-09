@@ -35,8 +35,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private UICrafting uiCrafting;
     [SerializeField] private CraftingItems craftItems;
     public Camera theCamera;
-    [SerializeField] private float fifthHeight;
-    [SerializeField] private float fifthWidth;
+    private float fifthHeight;
+    private float fifthWidth;
     private State state = State.Normal;
     private bool containsWeapon;
     [HideInInspector] public float wepNum = 0;
@@ -48,13 +48,15 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown; public float dashCooldownCount;
     public GameObject dashEffect;
     public bool canDash;
-    float chargeTime; float chargeClock=0.5f; bool spriteWhite;
+    float chargeTime; float chargeClock = 0.5f; bool spriteWhite;
     private SpriteRenderer myRenderer;
     private Shader shaderGUItext;
     private Shader shaderSpritesDefault;
     float timeSinceAttack;
     bool canChattack;
-
+    [SerializeField] private Animator chargeFwoosh;
+    bool fwooshPlayed = false;
+    float charFwooshTimer = 0f;
 
     // Start is called before the first frame update
     private void Awake()
@@ -109,7 +111,7 @@ public class PlayerController : MonoBehaviour
     {
         CheckGear();
         timeSinceAttack += Time.deltaTime;
-        if (Input.GetMouseButton(0)&&timeSinceAttack>=0.5)
+        if (Input.GetMouseButton(0)&&timeSinceAttack>=0.25)
         {
             anim.SetBool("PlayerAttacking", false);
             anim.SetBool("PlayerChattacking", false);
@@ -117,7 +119,7 @@ public class PlayerController : MonoBehaviour
             chargeTime += Time.deltaTime;
             if (chargeTime > chargeClock)
             {
-                chargeClock += 0.5f;
+                chargeClock += 0.25f;
                 switch (spriteWhite)
                 {
                     case true:
@@ -141,11 +143,25 @@ public class PlayerController : MonoBehaviour
 
             
         }
+        //if(chargeTime >= 1f&&fwooshPlayed == false)
+        //{
+        //    charFwooshTimer = anim.GetCurrentAnimatorStateInfo(0).length;
+        //    fwooshPlayed = true;
+        //    chargeFwoosh.gameObject.SetActive(true);
+        //    chargeFwoosh.Play("ChargedFwoosh");
+        //    charFwooshTimer += Time.deltaTime;
+        //    if()
+        //    {
+        //        chargeFwoosh.gameObject.SetActive(false);
+        //    }
+            
+        //}
         if (chargeTime >= 1f && Input.GetMouseButtonUp(0)&&canChattack)
         {
+            fwooshPlayed = false;
             chargeTime = 0f;
             normalSprite();
-            chargeClock = 0.5f;
+            chargeClock = 0.25f;
             SetLastMoveToMouse();
             myRigidbody.velocity = Vector2.zero;
             anim.SetFloat("LastMoveX", lastMove.x);
