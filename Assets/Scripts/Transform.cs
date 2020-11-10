@@ -29,17 +29,11 @@ public class Transform : MonoBehaviour
         }
         else if(go&&!start)
         {
-            if (animCount > 0)
-            {
-                animCount -= Time.deltaTime;
-            }
-            else
-            {
-                buddy.SetActive(true);
-                buddy.transform.position = transform.position;
-                buddy.GetComponent<PetMovement>().petNum = 0;
-                Destroy(gameObject);
-            }
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            buddy.SetActive(true);
+            buddy.transform.position = transform.position;
+            buddy.GetComponent<PetMovement>().petNum = 0;
+
 
         }
     }
@@ -55,12 +49,6 @@ public class Transform : MonoBehaviour
         {
             start = true;
             go = true;
-
-
-
-
-
-
         }
 
     }

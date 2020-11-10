@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown; public float dashCooldownCount;
     public GameObject dashEffect;
     public bool canDash;
-    float chargeTime; float chargeClock = 0.5f; bool spriteWhite;
+    float chargeTime; float chargeClock = 0.25f; bool spriteWhite;
     private SpriteRenderer myRenderer;
     private Shader shaderGUItext;
     private Shader shaderSpritesDefault;
@@ -143,19 +143,11 @@ public class PlayerController : MonoBehaviour
 
             
         }
-        //if(chargeTime >= 1f&&fwooshPlayed == false)
-        //{
-        //    charFwooshTimer = anim.GetCurrentAnimatorStateInfo(0).length;
-        //    fwooshPlayed = true;
-        //    chargeFwoosh.gameObject.SetActive(true);
-        //    chargeFwoosh.Play("ChargedFwoosh");
-        //    charFwooshTimer += Time.deltaTime;
-        //    if()
-        //    {
-        //        chargeFwoosh.gameObject.SetActive(false);
-        //    }
-            
-        //}
+        if (chargeTime >= 1f && fwooshPlayed == false)
+        {
+            fwooshPlayed = true;
+            chargeFwoosh.gameObject.SetActive(true);
+        }
         if (chargeTime >= 1f && Input.GetMouseButtonUp(0)&&canChattack)
         {
             fwooshPlayed = false;
@@ -177,6 +169,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
+            fwooshPlayed = false;
             chargeTime = 0f;
             normalSprite();
             chargeClock = 0.5f;
@@ -311,7 +304,7 @@ public class PlayerController : MonoBehaviour
             containsWeapon = true;
             anim.SetInteger("Weapon", 1);
         }
-        else if (CheckForItem(Item.ItemType.ReinforcedWoodSword, 0) && wepNum <= 2)
+        if (CheckForItem(Item.ItemType.ReinforcedWoodSword, 0) && wepNum <= 2)
         {
             canChattack = false;
             knockback = 2;
@@ -320,7 +313,7 @@ public class PlayerController : MonoBehaviour
             containsWeapon = true;
             anim.SetInteger("Weapon", 2);
         }
-        else if (CheckForItem(Item.ItemType.RefinedWoodSword, 0) && wepNum <= 3)
+        if (CheckForItem(Item.ItemType.RefinedWoodSword, 0) && wepNum <= 3)
         {
             canChattack = false;
             knockback = 2;
@@ -329,7 +322,7 @@ public class PlayerController : MonoBehaviour
             containsWeapon = true;
             anim.SetInteger("Weapon", 3);
         }
-        else if (CheckForItem(Item.ItemType.IronSword, 0) && wepNum <= 4)
+        if (CheckForItem(Item.ItemType.IronSword, 0) && wepNum <= 4)
         {
             canChattack = false;
             knockback = 3;
@@ -338,7 +331,7 @@ public class PlayerController : MonoBehaviour
             containsWeapon = true;
             anim.SetInteger("Weapon", 4);
         }
-        else if (CheckForItem(Item.ItemType.SilverSword, 0) && wepNum <= 5)
+        if (CheckForItem(Item.ItemType.SilverSword, 0) && wepNum <= 5)
         {
             canChattack = false;
             knockback = 3;
@@ -347,7 +340,7 @@ public class PlayerController : MonoBehaviour
             containsWeapon = true;
             anim.SetInteger("Weapon", 5);
         }
-        else if(CheckForItem(Item.ItemType.EmbroidedSword,0)&& wepNum <= 6)
+        if(CheckForItem(Item.ItemType.EmbroidedSword,0)&& wepNum <= 6)
         {
             canChattack = true;
             knockback = 3;
@@ -356,7 +349,7 @@ public class PlayerController : MonoBehaviour
             containsWeapon = true;
             anim.SetInteger("Weapon", 6);
         }
-        else if (!containsWeapon)
+        if (!containsWeapon)
         {
             canChattack = false;
             knockback = 1;

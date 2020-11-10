@@ -13,12 +13,12 @@ public class Inventory
         this.useItemAction = useItemAction;
         itemList = new List<Item>();
         
-        AddItem(new Item { itemType = Item.ItemType.Emerald, amount = 1 });
-        AddItem(new Item { itemType = Item.ItemType.SilverSword, amount = 1 });
-
-
-
-
+        //AddItem(new Item { itemType = Item.ItemType.EmbroidedSword, amount = 1 });
+        //AddItem(new Item { itemType = Item.ItemType.SilverSword, amount = 1 });
+        //AddItem(new Item { itemType = Item.ItemType.IronSword, amount = 1 });
+        //AddItem(new Item { itemType = Item.ItemType.RefinedWoodSword, amount = 1 });
+        //AddItem(new Item { itemType = Item.ItemType.ReinforcedWoodSword, amount = 1 });
+        //AddItem(new Item { itemType = Item.ItemType.WoodenSword, amount = 1 });
 
     }
     public void AddItem(Item item)

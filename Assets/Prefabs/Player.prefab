@@ -82,14 +82,15 @@ GameObject:
   m_Component:
   - component: {fileID: 6846595464523172173}
   - component: {fileID: 5077102042030328618}
-  - component: {fileID: 1698329904851608466}
+  - component: {fileID: 6718196670913211394}
+  - component: {fileID: 2175366985591265471}
   m_Layer: 0
   m_Name: ChargeFwoosh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6846595464523172173
 Transform:
   m_ObjectHideFlags: 0
@@ -155,7 +156,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1698329904851608466
+--- !u!95 &6718196670913211394
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -174,6 +175,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2175366985591265471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117138420657019494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065d5dc2038a0c3479ebcf85c0c7f2a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5791509622941367113
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +536,7 @@ MonoBehaviour:
   dashCooldownCount: 0
   dashEffect: {fileID: 0}
   canDash: 0
-  chargeFwoosh: {fileID: 1698329904851608466}
+  chargeFwoosh: {fileID: 0}
 --- !u!114 &1076358031826608498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,7 +656,7 @@ MonoBehaviour:
   - {x: -0.32584688, y: 0.33898658, z: 0}
   m_ShapePathHash: -1978196989
   m_Mesh: {fileID: 0}
-  m_InstanceId: 28204
+  m_InstanceId: 32984
 --- !u!114 &6985844799429437624
 MonoBehaviour:
   m_ObjectHideFlags: 0

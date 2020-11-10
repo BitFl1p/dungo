@@ -147,7 +147,7 @@ AnimationClip:
     script: {fileID: 0}
   - curve:
     - time: 0
-      value: {fileID: 7598694128812750629, guid: 0a99bf021ca0e6d478e0d5d8e1d3a6ef,
+      value: {fileID: -6431139172517179433, guid: 0a99bf021ca0e6d478e0d5d8e1d3a6ef,
         type: 3}
     attribute: m_Sprite
     path: Sword
@@ -197,7 +197,7 @@ AnimationClip:
     - {fileID: -7465842028720771505, guid: c54966b5422c9e848a605ad40266adf1, type: 3}
     - {fileID: 9147181767866085344, guid: c54966b5422c9e848a605ad40266adf1, type: 3}
     - {fileID: 5677458047269691213, guid: c54966b5422c9e848a605ad40266adf1, type: 3}
-    - {fileID: 7598694128812750629, guid: 0a99bf021ca0e6d478e0d5d8e1d3a6ef, type: 3}
+    - {fileID: -6431139172517179433, guid: 0a99bf021ca0e6d478e0d5d8e1d3a6ef, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
