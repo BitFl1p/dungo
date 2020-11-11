@@ -35,32 +35,7 @@ public class EnemyAI : MonoBehaviour
 
     }
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        
-
-        if (path == null)
-        {
-            return;
-        }
-        if(currentWaypoint>= path.vectorPath.Count)
-        {
-            reachedEndOfPath = true;
-            return;
-        } else
-        {
-            reachedEndOfPath = false;
-        }
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
-        
-        rb.AddForce(force);
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-        if(distance < nextWaypointDistance)
-        {
-            currentWaypoint++;
-        }
-    }
+    
     void OnPathComplete(Path p)
     {
         if (!p.error)
@@ -69,13 +44,33 @@ public class EnemyAI : MonoBehaviour
             currentWaypoint = 0;
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    
+    public void PlayerSeen()
     {
-        if(other.tag == "Swing")
+        if (path == null)
         {
-            Vector3 force = new Vector3(transform.position.x - other.transform.position.x, transform.position.y - other.transform.position.y).normalized * other.GetComponent<HurtEnemy>().knockback;
+            return;
+        }
+        if (currentWaypoint >= path.vectorPath.Count)
+        {
+            reachedEndOfPath = true;
+            return;
+        }
+        else
+        {
+            reachedEndOfPath = false;
+        }
+        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        Vector2 force = direction * speed * Time.deltaTime;
 
-            rb.AddForce(force, ForceMode2D.Impulse);
+        rb.AddForce(force);
+        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        if (distance < nextWaypointDistance)
+        {
+            currentWaypoint++;
         }
     }
+    
+            
+        
 }

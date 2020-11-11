@@ -460,3 +460,11 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1
+    functionName: TurnOnPet
+    data: 
+    objectReferenceParameter: {fileID: 2088898701594475152, guid: 33e7ff63211d6934bbddc3b256d7b9a2,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

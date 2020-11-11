@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 3937094958751757124}
   - component: {fileID: 2520007803075401968}
   - component: {fileID: 6226264549192321009}
+  - component: {fileID: 370929567284481954}
+  - component: {fileID: 370929567284481959}
+  - component: {fileID: 370929567284481960}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -74,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1914194677
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 53
   m_Sprite: {fileID: 3763752930381237044, guid: 3902bd155f46c0b45a1e35e3b00877c4,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -181,7 +184,78 @@ MonoBehaviour:
   - {x: -0.7908311, y: 0.68872833, z: 0}
   m_ShapePathHash: -1901398617
   m_Mesh: {fileID: 0}
-  m_InstanceId: 30404
+  m_InstanceId: -13058
+--- !u!114 &370929567284481954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937094958751757125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.502
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_LightVolumeOpacity: 0.117
+  m_ApplyToSortingLayers: 000000003b7114d049c35681f54a1872fb601fa8bd640aed
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.29
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &370929567284481959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937094958751757125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2283ef9105a3ab040a308cbbc3a0039e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 2520007803075401968}
+  dHold: {fileID: 3937094958954687845}
+  dMan: {fileID: 0}
+  count: 0
+  buddy: {fileID: 0}
+  animCount: 0
+--- !u!114 &370929567284481960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937094958751757125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065d5dc2038a0c3479ebcf85c0c7f2a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3937094958954687840
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +312,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.3933375, y: 1.3933375}
   m_EdgeRadius: 0
 --- !u!114 &3937094958954687845
 MonoBehaviour:

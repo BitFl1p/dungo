@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test_Area2.unity
     guid: ffa9f4907c2786b4bbba0081454b3904
+  - enabled: 1
+    path: Assets/Scenes/First Dungeon.unity
+    guid: 6bea1818353504846bd1f4d3482d56c1
   m_configObjects: {}

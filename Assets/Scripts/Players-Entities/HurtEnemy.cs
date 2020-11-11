@@ -14,8 +14,6 @@ public class HurtEnemy : MonoBehaviour
     void Start()
     {
         thePlayer = FindObjectOfType<PlayerController>();
-        knockback = thePlayer.knockback;
-        damage = thePlayer.damage;
     }
 
     // Update is called once per frame
@@ -23,12 +21,16 @@ public class HurtEnemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy") 
         {
-
+            
+            knockback = thePlayer.knockback;
+            damage = thePlayer.damage;
             //other.gameObject.SetActive(false); 
             other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(thePlayer.damage);
             Instantiate(damageBurst, hitPoint.transform.position, hitPoint.transform.rotation);
-            
-            
+            Vector3 force = new Vector3(other.transform.position.x - transform.position.x, other.transform.position.y - transform.position.y).normalized * knockback;
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);
+
+
 
         }
     }

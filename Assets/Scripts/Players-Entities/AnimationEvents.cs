@@ -13,4 +13,8 @@ public class AnimationEvents : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    void TurnOnPet()
+    {
+        FindObjectOfType<PetMovement>().enabled = true;
+    }
 }
