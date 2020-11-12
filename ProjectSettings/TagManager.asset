@@ -15,6 +15,7 @@ TagManager:
   - Shaker
   - ItemAssets
   - EnemyVision
+  - PauseManager
   layers:
   - Default
   - TransparentFX

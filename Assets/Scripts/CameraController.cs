@@ -15,8 +15,9 @@ public class CameraController : MonoBehaviour
     private Camera theCamera;
     private float halfHeight;
     private float halfWidth;
+    private bool boundsExist;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +47,10 @@ public class CameraController : MonoBehaviour
     {
         targetPosition = new Vector3(followTarget.transform.position.x, followTarget.transform.position.y, transform.position.z);
         transform.position = Vector3.Lerp(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-        if(boundBox == null)
+        if (FindObjectOfType<Bounds>() == null)
+        {
+            boundsExist = false;
+        } else if(boundBox == null)
         {
             boundBox = FindObjectOfType<Bounds>().GetComponent<BoxCollider2D>();
             minBounds = boundBox.bounds.min;

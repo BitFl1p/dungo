@@ -11,16 +11,17 @@ public class VolumeManager : MonoBehaviour
     void Start()
     {
         vcObjects = FindObjectsOfType<VolumeController>();
-        if(currentVolumeLevel > maxVolumeLevel) { currentVolumeLevel = maxVolumeLevel; }
-        for(int i = 1; i < vcObjects.Length; i++)
-        {
-            vcObjects[i].SetAudioLevel(currentVolumeLevel);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
+        if (currentVolumeLevel > maxVolumeLevel) { currentVolumeLevel = maxVolumeLevel; }
+        foreach (VolumeController vCon in vcObjects)
+        {
+            vCon.SetAudioLevel(currentVolumeLevel);
+            
+        }
     }
 }
