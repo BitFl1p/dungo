@@ -192,7 +192,6 @@ public class PlayerController : MonoBehaviour
 
             case State.Normal:
 
-
                 anim.SetBool("PlayerAttacking", false);
                 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
                 if (moveInput != Vector2.zero)
