@@ -17,4 +17,17 @@ public class AnimationEvents : MonoBehaviour
     {
         FindObjectOfType<PetMovement>().enabled = true;
     }
+    public AudioSource FirstSound;
+    public AudioSource SecondSound;
+    public MusicController mCon;
+    void PlayFirstSound()
+    {
+        FirstSound.Play();
+    }
+    void PlaySecondSound()
+    {
+        SecondSound.Play();
+        mCon.musicCanPlay = true;
+        mCon.currentTrack = 0;
+    }
 }

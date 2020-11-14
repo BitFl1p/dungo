@@ -7,6 +7,7 @@ public class SFXManager : MonoBehaviour
     public AudioSource playerHurt;
     public AudioSource playerDead;
     public AudioSource PlayerAttack;
+     
     // Start is called before the first frame update
     void Start()
     {
