@@ -6,10 +6,12 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private OptionsMenu options;
     [SerializeField] private PauseManager pauseMan;
-    
+    [SerializeField] private Animator transition;
+
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        transition.Play("Transition_Start");
+        
     }
     public void OpenOptions()
     {

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadNewArea : MonoBehaviour
 {
-    public string levelToLoad;
+    public int levelToLoad;
     public string exitPoint;
     private PlayerController thePlayer;
 
@@ -21,7 +21,12 @@ public class LoadNewArea : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         
-        if (other.gameObject.name == "Player") { SceneManager.LoadScene(levelToLoad); }
+        if (other.gameObject.name == "Player") 
+        { 
+            GameObject transition = GameObject.FindGameObjectWithTag("Transition");
+            transition.GetComponent<Animator>().Play("Transition_Start");
+            transition.GetComponent<AnimationEvents>().levelToLoad = levelToLoad;
+        }
         thePlayer.startPoint = exitPoint;
     }
 }

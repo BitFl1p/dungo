@@ -16,6 +16,7 @@ TagManager:
   - ItemAssets
   - EnemyVision
   - PauseManager
+  - Transition
   layers:
   - Default
   - TransparentFX

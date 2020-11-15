@@ -29,7 +29,7 @@ public class PlayerHealthManager : MonoBehaviour
     {
         if (playerCurrentHealth <=0) 
         {
-            sfxMan.playerDead.Play();
+            sfxMan.SFX[2].Play();
             gameObject.SetActive(false);
 
         }
@@ -56,7 +56,7 @@ public class PlayerHealthManager : MonoBehaviour
             playerCurrentHealth -= damage;
             flashActive = true;
             flashCount = flashLength;
-            sfxMan.playerHurt.Play();
+            sfxMan.SFX[1].Play();
             invincible = true;
         }
         

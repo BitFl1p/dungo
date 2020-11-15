@@ -7,6 +7,7 @@ public class VolumeManager : MonoBehaviour
     public VolumeController[] vcObjects;
     public float maxVolumeLevel = 1f;
     public float currentVolumeLevel;
+    [SerializeField]private float anchoredVolume;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +17,11 @@ public class VolumeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        if (currentVolumeLevel > maxVolumeLevel) { currentVolumeLevel = maxVolumeLevel; }
+        anchoredVolume = maxVolumeLevel * currentVolumeLevel;
+        
         foreach (VolumeController vCon in vcObjects)
         {
-            vCon.SetAudioLevel(currentVolumeLevel);
+            vCon.SetAudioLevel(anchoredVolume);
             
         }
     }

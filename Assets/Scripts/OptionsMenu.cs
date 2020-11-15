@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
-    [SerializeField] private VolumeManager vMan;
+    private VolumeManager vMan;
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private MainMenu menu;
     // Start is called before the first frame update
+    private void Start()
+    {
+        vMan = FindObjectOfType<VolumeManager>();
+    }
     public void Back()
     {
         menu.gameObject.SetActive(true);

@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
             anim.SetFloat("LastMoveY", lastMove.y);
             attackTimeCounter = attackTime;
             state = State.Chattacking;
-            sfxMan.PlayerAttack.Play();
+            sfxMan.SFX[0].Play();
             damage = 6;
             knockback = 4;
             myRigidbody.velocity = Vector2.zero;
@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
             myRigidbody.velocity = Vector2.zero;
             anim.SetBool("PlayerAttacking", true);
             timeSinceAttack = 0;
-            sfxMan.PlayerAttack.Play();
+            sfxMan.SFX[0].Play();
         }
         if (!canMove) { myRigidbody.velocity = Vector2.zero; moveInput = Vector2.zero; anim.SetBool("PlayerMoving", false);return; }
         

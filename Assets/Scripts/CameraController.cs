@@ -22,18 +22,16 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         
-        if (GameObject.FindGameObjectsWithTag("MainCamera").Length > 1)
-        {
-            Object.Destroy(gameObject);
 
-        }
-        else
+        if (boundBox = null) { boundsExist = false; }
+        else { boundsExist = true; }
+        if (boundsExist)
         {
-            DontDestroyOnLoad(transform.gameObject);
-
+            boundBox = FindObjectOfType<Bounds>().GetComponent<BoxCollider2D>();
+            minBounds = boundBox.bounds.min;
+            maxBounds = boundBox.bounds.max;
         }
-        minBounds = boundBox.bounds.min;
-        maxBounds = boundBox.bounds.max;
+       
         theCamera = GetComponent<Camera>();
         
         halfHeight = theCamera.orthographicSize;
@@ -45,20 +43,21 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (boundBox = null) { boundsExist = false; }
+        else { boundsExist = true; }
         targetPosition = new Vector3(followTarget.transform.position.x, followTarget.transform.position.y, transform.position.z);
         transform.position = Vector3.Lerp(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-        if (FindObjectOfType<Bounds>() == null)
+        if (boundsExist)
         {
-            boundsExist = false;
-        } else if(boundBox == null)
-        {
-            boundBox = FindObjectOfType<Bounds>().GetComponent<BoxCollider2D>();
+            
             minBounds = boundBox.bounds.min;
             maxBounds = boundBox.bounds.max;
-        }
-        float clampedX = Mathf.Clamp(transform.position.x, minBounds.x + halfWidth, maxBounds.x - halfWidth);
-        float clampedY = Mathf.Clamp(transform.position.y, minBounds.y + halfHeight, maxBounds.y - halfHeight);
-        transform.position = new Vector3(clampedX, clampedY, transform.position.z);
+            float clampedX = Mathf.Clamp(transform.position.x, minBounds.x + halfWidth, maxBounds.x - halfWidth);
+            float clampedY = Mathf.Clamp(transform.position.y, minBounds.y + halfHeight, maxBounds.y - halfHeight);
+            transform.position = new Vector3(clampedX, clampedY, transform.position.z);
+        } 
+        
+        
     }
     public void SetBounds(BoxCollider2D newBounds)
     {
