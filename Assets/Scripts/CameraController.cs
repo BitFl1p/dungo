@@ -21,13 +21,13 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
 
-        if (boundBox = null) { boundsExist = false; }
-        else { boundsExist = true; }
+
+        if (FindObjectOfType<Bounds>().GetComponent<BoxCollider2D>() == null) { boundsExist = false; }
+        else { boundsExist = true; boundBox = FindObjectOfType<Bounds>().GetComponent<BoxCollider2D>(); }
         if (boundsExist)
         {
-            boundBox = FindObjectOfType<Bounds>().GetComponent<BoxCollider2D>();
+            
             minBounds = boundBox.bounds.min;
             maxBounds = boundBox.bounds.max;
         }
@@ -43,8 +43,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (boundBox = null) { boundsExist = false; }
-        else { boundsExist = true; }
+        if (FindObjectOfType<Bounds>().GetComponent<BoxCollider2D>() == null) { boundsExist = false; }
+        else { boundsExist = true; boundBox = FindObjectOfType<Bounds>().GetComponent<BoxCollider2D>(); }
         targetPosition = new Vector3(followTarget.transform.position.x, followTarget.transform.position.y, transform.position.z);
         transform.position = Vector3.Lerp(transform.position, targetPosition, moveSpeed * Time.deltaTime);
         if (boundsExist)

@@ -20,9 +20,25 @@ public class AnimationEvents : MonoBehaviour
     public AudioSource FirstSound;
     public AudioSource SecondSound;
     public MusicController mCon;
+    public GameObject poof;
     void PlayFirstSound()
     {
         FirstSound.Play();
+        GameObject poof1 = Instantiate(poof);
+        poof1.transform.position = new Vector3(7.333764f, 0f, 0f);
+        GameObject poof2 = Instantiate(poof);
+        poof2.transform.position = new Vector3(7.333764f, 3.595856f, 0f);
+        GameObject poof3 = Instantiate(poof);
+        poof3.transform.position = new Vector3(7.333764f, -3.218905f, 0f);
+        GameObject poof4 = Instantiate(poof);
+        poof4.transform.position = new Vector3(-7.399622f, 0f, 0f);
+        poof4.transform.localScale = new Vector3(-1, 1, 1);
+        GameObject poof5 = Instantiate(poof);
+        poof5.transform.position = new Vector3(-7.399622f, 3.595856f, 0f);
+        poof5.transform.localScale = new Vector3(-1, 1, 1);
+        GameObject poof6 = Instantiate(poof);
+        poof6.transform.position = new Vector3(-7.399622f, -3.218905f, 0f);
+        poof6.transform.localScale = new Vector3(-1, 1, 1);
     }
     void PlaySecondSound()
     {

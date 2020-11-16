@@ -17,6 +17,8 @@ TagManager:
   - EnemyVision
   - PauseManager
   - Transition
+  - Pet
+  - Cursor
   layers:
   - Default
   - TransparentFX
