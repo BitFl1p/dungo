@@ -184,7 +184,7 @@ MonoBehaviour:
   - {x: -0.7908311, y: 0.68872833, z: 0}
   m_ShapePathHash: -1901398617
   m_Mesh: {fileID: 0}
-  m_InstanceId: -13058
+  m_InstanceId: 48900
 --- !u!114 &370929567284481954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +256,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065d5dc2038a0c3479ebcf85c0c7f2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FirstSound: {fileID: 0}
+  SecondSound: {fileID: 0}
+  mCon: {fileID: 0}
+  poof: {fileID: 0}
+  levelToLoad: 0
+  levelLoader: {fileID: 0}
+  transition: {fileID: 0}
+  canvas: {fileID: 0}
+  globalVolume: {fileID: 0}
 --- !u!1 &3937094958954687840
 GameObject:
   m_ObjectHideFlags: 0

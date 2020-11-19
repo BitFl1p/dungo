@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public string startPoint;
     public float diagonalMoveModifier;
     public bool canMove;
-    private SFXManager sfxMan;
+    [SerializeField] private SFXManager sfxMan;
     private Inventory inventory;
     private CraftableInventory craftInventory;
     [SerializeField] private Vector2 mousePos;
@@ -109,6 +109,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        sfxMan = FindObjectOfType<SFXManager>();
         CheckGear();
         timeSinceAttack += Time.deltaTime;
         if (Input.GetMouseButton(0)&&timeSinceAttack>=0.25)

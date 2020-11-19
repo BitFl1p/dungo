@@ -18,7 +18,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = FindObjectOfType<PlayerController>().GetComponent<UnityEngine.Transform>();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         
@@ -28,6 +28,7 @@ public class EnemyAI : MonoBehaviour
     void UpdatePath()
     {
         
+
         if (seeker.IsDone())
         {
             seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
