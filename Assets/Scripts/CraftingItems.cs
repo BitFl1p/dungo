@@ -38,18 +38,19 @@ public class CraftingItems : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.tag == "Crafting")
-        {
-
-            CheckCraftables();
-            
-        }
+        if (other.tag == "Crafting") { CheckCraftables(); }
+        if (other.tag == "Smelting") { CheckSmeltables(); }
 
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Crafting")
+        {
+            if (craftInv != null) { craftInv.ClearCraftables(); }
+            uiCraft.RefreshCraftables();
+        }
+        if (other.tag == "Smelting")
         {
             if (craftInv != null) { craftInv.ClearCraftables(); }
             uiCraft.RefreshCraftables();
@@ -147,6 +148,19 @@ public class CraftingItems : MonoBehaviour
         }
         uiCraft.RefreshCraftables();
         
+    }
+    public void CheckSmeltables()
+    {
+        if (CheckForItem(Item.ItemType.MetalOre, 1))
+        {
+            craftInv.AddCraftable(new Item { itemType = Item.ItemType.Brass, amount = 1 });
+            craftInv.AddCraftable(new Item { itemType = Item.ItemType.Iron, amount = 1 });
+        }
+        if (CheckForItem(Item.ItemType.RefinedOre, 1))
+        {
+            craftInv.AddCraftable(new Item { itemType = Item.ItemType.Silver, amount = 1 });
+        }
+        uiCraft.RefreshCraftables();
     }
 }
 

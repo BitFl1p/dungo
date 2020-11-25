@@ -15,9 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/First Dungeon.unity
     guid: 6bea1818353504846bd1f4d3482d56c1
   - enabled: 1
+    path: Assets/Scenes/CraftRoom1.unity
+    guid: bfca28f833c24fc4c9d357f3bd58c787
+  - enabled: 1
     path: Assets/Scenes/BossRoom.unity
     guid: bcc07e06d1c7066468cd2f7320de0e0e
   - enabled: 1
     path: Assets/Scenes/Second Dungeon.unity
     guid: 6f7ccc96e34dad64c83ccd9beef6d33e
+  - enabled: 1
+    path: Assets/Scenes/Outside.unity
+    guid: d3f4dfcc7f0cd9343b0b18799bb37b32
   m_configObjects: {}
