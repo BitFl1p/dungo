@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 2241060162955130104}
   - component: {fileID: 2920696354463647386}
   - component: {fileID: 1073938258}
-  - component: {fileID: 1073938259}
+  - component: {fileID: 2490764012375765535}
   m_Layer: 0
   m_Name: slime_red
   m_TagString: Enemy
@@ -264,7 +264,7 @@ MonoBehaviour:
   - {x: -0.17410088, y: 0.31012863, z: 0}
   m_ShapePathHash: 1173036145
   m_Mesh: {fileID: 0}
-  m_InstanceId: 50556
+  m_InstanceId: 42074
 --- !u!114 &1073938258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &1073938259
+--- !u!114 &2490764012375765535
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2241060162955130087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d4249afddb721f4ea4db5f96092f1e0, type: 3}
+  m_Script: {fileID: 11500000, guid: b732a3c700807e9428084076bf6c712d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
