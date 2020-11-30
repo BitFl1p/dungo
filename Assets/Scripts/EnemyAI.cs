@@ -7,12 +7,13 @@ public class EnemyAI : MonoBehaviour
     public UnityEngine.Transform target;
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
-    
+    public bool slidy;
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
     Seeker seeker;
     Rigidbody2D rb;
+    bool leftLast; bool rightLast;
     
     
     // Start is called before the first frame update
@@ -24,7 +25,34 @@ public class EnemyAI : MonoBehaviour
         
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
+    private void Update()
+    {
+        if(rb.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-1,1,1);
+            leftLast = true;
+            rightLast = false;
+        }
+        else if (rb.velocity.x > 0)
+        {
 
+            transform.localScale = new Vector3(1, 1, 1);
+            rightLast = true;
+            leftLast = false;
+        }
+        else if (rb.velocity.x == 0)
+        {
+            if (leftLast)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            if (rightLast)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        
+    }
     void UpdatePath()
     {
         
@@ -64,7 +92,14 @@ public class EnemyAI : MonoBehaviour
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
-        rb.AddForce(force);
+        if (slidy)
+        {
+            rb.AddForce(force);
+        }
+        else
+        {
+            rb.velocity = force;
+        }
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)
         {

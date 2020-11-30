@@ -14,8 +14,11 @@ public UnityEngine.Transform target;
     bool reachedEndOfPath = false;
     Seeker seeker;
     Rigidbody2D rb;
-    
-    
+    float count;
+    bool stillCounting = true;
+    float max = 3;
+    bool attack = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +26,33 @@ public UnityEngine.Transform target;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        
     }
-
+    private void Update()
+    {
+        if (stillCounting) 
+        { 
+            count += Time.deltaTime; 
+            if (count <= max)
+            {
+                stillCounting = false;
+                count = 0;
+                attack = true;
+            } 
+        }
+        if (attack)
+        {
+            InvokeRepeating("UpdatePath", 0f, .5f);
+        }
+        if (rb.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
     void UpdatePath()
     {
         
@@ -72,5 +99,6 @@ public UnityEngine.Transform target;
             currentWaypoint++;
         }
     }
+    
     
 }
