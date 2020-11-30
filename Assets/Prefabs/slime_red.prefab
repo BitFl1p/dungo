@@ -199,6 +199,9 @@ MonoBehaviour:
   enemyMaxHealth: 3
   enemyCurrentHealth: 3
   expToGive: 25
+  pfItemWorld: {fileID: 4571040762208162877, guid: b546ba093c576124b850a8ba6fabe499,
+    type: 3}
+  Drops: []
   enemyQuestName: Red Slime
 --- !u!58 &2241060162955130106
 CircleCollider2D:
@@ -308,3 +311,4 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 200
   nextWaypointDistance: 3
+  slidy: 0

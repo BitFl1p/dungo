@@ -121,7 +121,7 @@ PrefabInstance:
     - target: {fileID: 2920696354463647386, guid: 2a159dda46c87a74684d66bccf2cde90,
         type: 3}
       propertyPath: m_InstanceId
-      value: -18822
+      value: -12272
       objectReference: {fileID: 0}
     - target: {fileID: 2920696354463647386, guid: 2a159dda46c87a74684d66bccf2cde90,
         type: 3}
@@ -192,6 +192,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594189392261949246, guid: 2a159dda46c87a74684d66bccf2cde90,
+        type: 3}
+      propertyPath: Drops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594189392261949246, guid: 2a159dda46c87a74684d66bccf2cde90,
+        type: 3}
+      propertyPath: Drops.Array.data[0].item.itemType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594189392261949246, guid: 2a159dda46c87a74684d66bccf2cde90,
+        type: 3}
+      propertyPath: Drops.Array.data[0].item.amount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594189392261949246, guid: 2a159dda46c87a74684d66bccf2cde90,
+        type: 3}
+      propertyPath: Drops.Array.data[0].chance
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a159dda46c87a74684d66bccf2cde90, type: 3}
