@@ -38,7 +38,7 @@ public class EnemyHealthManager : MonoBehaviour
             foreach (ItemWithChance thisItem in Drops)
             {
                 rand = UnityEngine.Random.Range(0, 100);
-                if (rand >= thisItem.chance)
+                if (rand <= thisItem.chance)
                 {
                     ItemWorld.SpawnItemWorld(transform.position, thisItem.item);
                     

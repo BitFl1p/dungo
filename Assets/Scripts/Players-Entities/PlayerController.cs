@@ -133,10 +133,7 @@ public class PlayerController : MonoBehaviour
                         break;
                 }
             }
-            if (chargeTime >= 2.5f)
-            {
-                //gonna play a little animation here so signify that the player is ready to do the big attack
-            }
+            
             
 
 
