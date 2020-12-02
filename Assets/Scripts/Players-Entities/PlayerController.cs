@@ -10,6 +10,8 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
+    float count = 0;
+    public bool knocked = false;
     private enum State
     {
         Normal, Attacking, Chattacking, Dashing
@@ -374,8 +376,22 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate()
     {
-        myRigidbody.velocity = Vector3.zero;
-        myRigidbody.velocity = moveInput * speed;
+        
+        if (!knocked)
+        {
+            myRigidbody.velocity = Vector3.zero;
+            myRigidbody.velocity = moveInput * speed;
+        }
+        else
+        {
+            count += Time.deltaTime;
+            if(count >= 3)
+            {
+                knocked = false;
+                count = 0;
+            }
+        }
+        
     }
     public static Vector3 GetMouseWorldPosition()
     {

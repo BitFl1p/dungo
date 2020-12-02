@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerHealthManager : MonoBehaviour
     private SpriteRenderer playerSprite;
     private SFXManager sfxMan;
     public bool invincible;
+    int scene = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +29,16 @@ public class PlayerHealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().buildIndex != scene)
+        {
+            SetMaxHealth();
+        }
+        scene = SceneManager.GetActiveScene().buildIndex;
         if (playerCurrentHealth <=0) 
         {
             sfxMan.SFX[2].Play();
-            gameObject.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SetMaxHealth();
 
         }
         if (flashActive)

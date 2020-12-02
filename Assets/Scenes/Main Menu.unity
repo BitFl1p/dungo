@@ -6506,7 +6506,7 @@ MonoBehaviour:
   - {fileID: 2062750730}
   - {fileID: 392207373}
   maxVolumeLevel: 0.3
-  currentVolumeLevel: 0.25
+  currentVolumeLevel: 0
   anchoredVolume: 1
 --- !u!1 &2049265813
 GameObject:
