@@ -15,6 +15,7 @@ public class PlayerHealthManager : MonoBehaviour
     private SFXManager sfxMan;
     public bool invincible;
     int scene = 0;
+    public LoadNewArea pfLoader;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,10 @@ public class PlayerHealthManager : MonoBehaviour
         if (playerCurrentHealth <=0) 
         {
             sfxMan.SFX[2].Play();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameObject transition = GameObject.FindGameObjectWithTag("Transition");
+            transition.GetComponent<Animator>().Play("Transition_Start");
+            transition.GetComponent<AnimationEvents>().levelToLoad = scene;
+            GetComponent<PlayerController>().startPoint = "";
             SetMaxHealth();
 
         }
