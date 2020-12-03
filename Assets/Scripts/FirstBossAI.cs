@@ -20,7 +20,7 @@ public class FirstBossAI : MonoBehaviour
     }
     void Update()
     {
-        if (!attacking&&attackTimeCount<=1.5)
+        if (!attacking&&attackTimeCount<= 0.7)
         {
             GetComponent<Animator>().SetBool("Attack", false);
             GetComponent<Animator>().SetBool("DownAttack", false);
@@ -69,7 +69,7 @@ public class FirstBossAI : MonoBehaviour
             transform.position += (new Vector3(center.x, center.y) - transform.position).normalized * speed;
             if (attackTimeCount <= 0)
             {
-                switch (Random.Range(1, 3))
+                switch (Random.Range(1, 4))
                 {
                     case 1:
                         GetComponent<Animator>().SetBool("Attack", true);
