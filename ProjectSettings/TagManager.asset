@@ -20,6 +20,7 @@ TagManager:
   - Pet
   - Cursor
   - Smelting
+  - RenderDistance
   layers:
   - Default
   - TransparentFX

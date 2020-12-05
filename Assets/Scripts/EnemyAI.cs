@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
     bool leftLast; bool rightLast;
+    public bool seen = false;
     
     
     // Start is called before the first frame update
@@ -25,11 +26,39 @@ public class EnemyAI : MonoBehaviour
         
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
-    private void Update()
+    
+    void UpdatePath()
     {
-        if(rb.velocity.x < 0)
+        if (seen)
         {
-            transform.localScale = new Vector3(-1,1,1);
+            if (seeker.IsDone())
+            {
+                seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
+            }
+        }
+
+        
+
+    }
+    // Update is called once per frame
+    
+    void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            path = p;
+            currentWaypoint = 0;
+        }
+    }
+    
+
+    public void PlayerSeen()
+    {
+        seen = true;
+        
+        if (rb.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
             leftLast = true;
             rightLast = false;
         }
@@ -51,31 +80,7 @@ public class EnemyAI : MonoBehaviour
                 transform.localScale = new Vector3(1, 1, 1);
             }
         }
-        
-    }
-    void UpdatePath()
-    {
-        
 
-        if (seeker.IsDone())
-        {
-            seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
-        }
-
-    }
-    // Update is called once per frame
-    
-    void OnPathComplete(Path p)
-    {
-        if (!p.error)
-        {
-            path = p;
-            currentWaypoint = 0;
-        }
-    }
-    
-    public void PlayerSeen()
-    {
         if (path == null)
         {
             return;

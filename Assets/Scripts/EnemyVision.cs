@@ -14,9 +14,18 @@ public class EnemyVision : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             enemyAI.PlayerSeen();
+            enemyAI.seen = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            
+            enemyAI.seen = false;
         }
     }
 }

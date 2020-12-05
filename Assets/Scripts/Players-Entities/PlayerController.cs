@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator chargeFwoosh;
     bool fwooshPlayed = false;
     float charFwooshTimer = 0f;
+    public bool canAttack;
+    public PauseManager pauseMan;
 
     // Start is called before the first frame update
     private void Awake()
@@ -101,90 +103,99 @@ public class PlayerController : MonoBehaviour
     }
     private void UseItem(Item item)
     {
-        switch (item.itemType)
-        {
+        //switch (item.itemType)
+        //{
             // gotta add some usability to my items but not today because FUCK THAT
             // inventory.RemoveItem(new Item { itemType = Item.ItemType.someShit, amount = 1 })
-        }
+        //}
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (uiInventory.uIInventoryActive || pauseMan.paused)
+        {
+            canAttack = false;
+        }
         sfxMan = FindObjectOfType<SFXManager>();
         CheckGear();
-        timeSinceAttack += Time.deltaTime;
-        if (Input.GetMouseButton(0)&&timeSinceAttack>=0.25)
+        if (canAttack)
         {
-            anim.SetBool("PlayerAttacking", false);
-            anim.SetBool("PlayerChattacking", false);
-            canMove = false;
-            chargeTime += Time.deltaTime;
-            if (chargeTime > chargeClock)
+            timeSinceAttack += Time.deltaTime;
+            if (Input.GetMouseButton(0) && timeSinceAttack >= 0.25)
             {
-                chargeClock += 0.25f;
-                switch (spriteWhite)
+                anim.SetBool("PlayerAttacking", false);
+                anim.SetBool("PlayerChattacking", false);
+                canMove = false;
+                chargeTime += Time.deltaTime;
+                if (chargeTime > chargeClock)
                 {
-                    case true:
-                        normalSprite();
-                        spriteWhite = false;
-                        break;
-                    case false:
-                        spriteWhite = true;
-                        whiteSprite();
-                        break;
+                    chargeClock += 0.25f;
+                    switch (spriteWhite)
+                    {
+                        case true:
+                            normalSprite();
+                            spriteWhite = false;
+                            break;
+                        case false:
+                            spriteWhite = true;
+                            whiteSprite();
+                            break;
+                    }
                 }
+
+
+
+
+
+
+
             }
-            
-            
+            if (chargeTime >= 1f && fwooshPlayed == false)
+            {
+                fwooshPlayed = true;
+                chargeFwoosh.gameObject.SetActive(true);
+            }
+            if (chargeTime >= 1f && Input.GetMouseButtonUp(0) && canChattack)
+            {
+                fwooshPlayed = false;
+                chargeTime = 0f;
+                normalSprite();
+                chargeClock = 0.25f;
+                SetLastMoveToMouse();
+                myRigidbody.velocity = Vector2.zero;
+                anim.SetFloat("LastMoveX", lastMove.x);
+                anim.SetFloat("LastMoveY", lastMove.y);
+                attackTimeCounter = attackTime;
+                state = State.Chattacking;
+                sfxMan.SFX[0].Play();
+                damage = 6;
+                knockback = 4;
+                myRigidbody.velocity = Vector2.zero;
+                anim.SetBool("PlayerChattacking", true);
+                timeSinceAttack = 0;
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                fwooshPlayed = false;
+                chargeTime = 0f;
+                normalSprite();
+                chargeClock = 0.5f;
+                SetLastMoveToMouse();
+                myRigidbody.velocity = Vector2.zero;
+                anim.SetFloat("LastMoveX", lastMove.x);
+                anim.SetFloat("LastMoveY", lastMove.y);
 
+                attackTimeCounter = attackTime;
+                state = State.Attacking;
+                myRigidbody.velocity = Vector2.zero;
+                anim.SetBool("PlayerAttacking", true);
+                timeSinceAttack = 0;
+                sfxMan.SFX[0].Play();
+            }
 
-
-
-            
         }
-        if (chargeTime >= 1f && fwooshPlayed == false)
-        {
-            fwooshPlayed = true;
-            chargeFwoosh.gameObject.SetActive(true);
-        }
-        if (chargeTime >= 1f && Input.GetMouseButtonUp(0)&&canChattack)
-        {
-            fwooshPlayed = false;
-            chargeTime = 0f;
-            normalSprite();
-            chargeClock = 0.25f;
-            SetLastMoveToMouse();
-            myRigidbody.velocity = Vector2.zero;
-            anim.SetFloat("LastMoveX", lastMove.x);
-            anim.SetFloat("LastMoveY", lastMove.y);
-            attackTimeCounter = attackTime;
-            state = State.Chattacking;
-            sfxMan.SFX[0].Play();
-            damage = 6;
-            knockback = 4;
-            myRigidbody.velocity = Vector2.zero;
-            anim.SetBool("PlayerChattacking", true);
-            timeSinceAttack=0;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            fwooshPlayed = false;
-            chargeTime = 0f;
-            normalSprite();
-            chargeClock = 0.5f;
-            SetLastMoveToMouse();
-            myRigidbody.velocity = Vector2.zero;
-            anim.SetFloat("LastMoveX", lastMove.x);
-            anim.SetFloat("LastMoveY", lastMove.y);
-
-            attackTimeCounter = attackTime;
-            state = State.Attacking;
-            myRigidbody.velocity = Vector2.zero;
-            anim.SetBool("PlayerAttacking", true);
-            timeSinceAttack = 0;
-            sfxMan.SFX[0].Play();
-        }
+        
         if (!canMove) { myRigidbody.velocity = Vector2.zero; moveInput = Vector2.zero; anim.SetBool("PlayerMoving", false);return; }
         
         switch (state)
