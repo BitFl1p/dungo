@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
-using UnityEditor.Events;
+
 using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering.Universal;
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator chargeFwoosh;
     bool fwooshPlayed = false;
     float charFwooshTimer = 0f;
-    public bool canAttack;
+    public bool canAttack = true;
     public PauseManager pauseMan;
 
     // Start is called before the first frame update
@@ -116,6 +116,10 @@ public class PlayerController : MonoBehaviour
         if (uiInventory.uIInventoryActive || pauseMan.paused)
         {
             canAttack = false;
+        }
+        else
+        {
+            canAttack = true;
         }
         sfxMan = FindObjectOfType<SFXManager>();
         CheckGear();
