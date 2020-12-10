@@ -8,7 +8,7 @@ public class BossDoor : MonoBehaviour
     public GameObject boss;
     void Update()
     {
-        if(boss = null)
+        if(boss == null)
         {
             GetComponent<BoxCollider2D>().isTrigger = true;
         }

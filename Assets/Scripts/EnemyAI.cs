@@ -4,6 +4,8 @@ using UnityEngine;
 using Pathfinding;
 public class EnemyAI : MonoBehaviour
 {
+    public float drag;
+    public Vector2 knockback;
     public UnityEngine.Transform target;
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
@@ -99,11 +101,35 @@ public class EnemyAI : MonoBehaviour
 
         if (slidy)
         {
-            rb.AddForce(force);
+            rb.AddForce(force+knockback);
         }
         else
         {
-            rb.velocity = force;
+            rb.velocity = force+knockback;
+        }
+        if (knockback.x > drag)
+        {
+            knockback.x -= drag;
+        }
+        else if (knockback.x < -drag)
+        {
+            knockback.x += drag;
+        }
+        else
+        {
+            knockback.x = 0;
+        }
+        if (knockback.y > 0)
+        {
+            knockback.y -= drag;
+        }
+        else if (knockback.y < -drag)
+        {
+            knockback.y += drag;
+        }
+        else
+        {
+            knockback.y = 0;
         }
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)

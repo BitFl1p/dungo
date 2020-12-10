@@ -6505,8 +6505,14 @@ MonoBehaviour:
   - {fileID: 666194710}
   - {fileID: 2062750730}
   - {fileID: 392207373}
+  - {fileID: 1454933243}
+  - {fileID: 2072348859}
+  - {fileID: 1059757848}
+  - {fileID: 666194710}
+  - {fileID: 2062750730}
+  - {fileID: 392207373}
   maxVolumeLevel: 0.3
-  currentVolumeLevel: 0
+  currentVolumeLevel: 0.5
   anchoredVolume: 1
 --- !u!1 &2049265813
 GameObject:

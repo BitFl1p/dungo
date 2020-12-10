@@ -15,13 +15,13 @@ public class HurtPlayerCollision : MonoBehaviour
         if(other.gameObject.name == "Player")
         {
             other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damage);
-            other.gameObject.GetComponent<PlayerController>().knocked = true;
-
-
-            Vector3 direction = (other.transform.position - transform.position) * knockback * 10;
-            direction.Normalize();
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(direction, ForceMode2D.Impulse);
             
+
+
+            Vector3 direction = ((other.transform.position - transform.position) * knockback).normalized * 50;
+            
+            other.gameObject.GetComponent<PlayerController>().knockers = direction;
+
         }
     }
 

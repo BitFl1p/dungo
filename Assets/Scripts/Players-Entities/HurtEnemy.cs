@@ -27,8 +27,8 @@ public class HurtEnemy : MonoBehaviour
             //other.gameObject.SetActive(false); 
             other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(thePlayer.damage);
             Instantiate(damageBurst, hitPoint.transform.position, hitPoint.transform.rotation);
-            Vector3 force = new Vector3(other.transform.position.x - transform.position.x, other.transform.position.y - transform.position.y).normalized * knockback;
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);
+            other.GetComponent<EnemyAI>().knockback = new Vector2(other.transform.position.x - transform.position.x, other.transform.position.y - transform.position.y).normalized * knockback*100;
+            
 
 
 
