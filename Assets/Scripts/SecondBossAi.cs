@@ -55,7 +55,11 @@ public class SecondBossAi : MonoBehaviour
             }
             else
             {
-                transform.position += (locations[index] - transform.position).normalized * speed;
+                if (!attacking)
+                {
+                    transform.position += (locations[index] - transform.position).normalized * speed;
+                }
+                
             }
             if (index >= locations.Length)
             {
