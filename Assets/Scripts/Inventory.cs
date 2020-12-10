@@ -8,11 +8,12 @@ public class Inventory
     public event EventHandler OnItemListChanged;
     public List<Item> itemList;
     private Action<Item> useItemAction;
-    public Inventory(Action<Item> useItemAction)
+    PlayerController pCon;
+    public Inventory(Action<Item> useItemAction,PlayerController controller)
     {
         this.useItemAction = useItemAction;
         itemList = new List<Item>();
-        
+        pCon = controller;
         //AddItem(new Item { itemType = Item.ItemType.EmbroidedSword, amount = 1 });
         //AddItem(new Item { itemType = Item.ItemType.SilverSword, amount = 1 });
         //AddItem(new Item { itemType = Item.ItemType.IronSword, amount = 1 });
@@ -21,6 +22,7 @@ public class Inventory
         //AddItem(new Item { itemType = Item.ItemType.WoodenSword, amount = 1 });
 
     }
+    
     public void AddItem(Item item)
     {
         if (item.IsStackable())
@@ -43,8 +45,8 @@ public class Inventory
         {
             itemList.Add(item);
         }
-        
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        pCon.CheckGear();
     }
     public void RemoveItem(Item item)
     {
@@ -79,6 +81,7 @@ public class Inventory
         }
 
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        pCon.CheckGear();
     }
     public void UseItem(Item item)
     {

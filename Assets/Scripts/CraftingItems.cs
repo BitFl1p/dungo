@@ -12,10 +12,11 @@ public class CraftingItems : MonoBehaviour
     public List<Item> craftables;
     [SerializeField] private CraftableInventory craftInv;
     [SerializeField] private UICrafting uiCraft;
-    
+    PlayerController pCon;
 
     private void Awake()
     {
+        pCon = FindObjectOfType<PlayerController>();
         //if(craftInv.itemList != null)
         //{
         //    craftables = craftInv.itemList;
@@ -81,7 +82,7 @@ public class CraftingItems : MonoBehaviour
         }
         CheckCraftables();
         uiCraft.RefreshCraftables();
-
+        pCon.CheckGear();
 
     }
     public bool CheckForItem(Item.ItemType requiredItemType, int quantity)

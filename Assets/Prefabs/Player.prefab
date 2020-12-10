@@ -187,6 +187,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065d5dc2038a0c3479ebcf85c0c7f2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FirstSound: {fileID: 0}
+  SecondSound: {fileID: 0}
+  mCon: {fileID: 0}
+  poof: {fileID: 0}
+  levelToLoad: 0
+  levelLoader: {fileID: 0}
+  transition: {fileID: 0}
+  canvas: {fileID: 0}
+  globalVolume: {fileID: 0}
 --- !u!1 &5791509622941367113
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,9 +431,9 @@ GameObject:
   - component: {fileID: 1076358031826608498}
   - component: {fileID: 2498241102750471954}
   - component: {fileID: 380937885462695767}
-  - component: {fileID: 7990299993020921099}
   - component: {fileID: 1382715968569267550}
   - component: {fileID: 6985844799429437624}
+  - component: {fileID: 4446404336226521039}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -514,12 +523,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fe2fa5e7454cc46bc16cc560e3604a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knocked: 0
   speed: 5
   lastMove: {x: 0, y: 0}
   attackTime: 1
   startPoint: 
   diagonalMoveModifier: 0.75
   canMove: 1
+  sfxMan: {fileID: 0}
   mousePos: {x: 0, y: 0}
   uiInventory: {fileID: 0}
   uiCrafting: {fileID: 0}
@@ -538,6 +549,8 @@ MonoBehaviour:
     type: 3}
   canDash: 0
   chargeFwoosh: {fileID: 6718196670913211394}
+  canAttack: 0
+  pauseMan: {fileID: 0}
 --- !u!114 &1076358031826608498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,6 +567,8 @@ MonoBehaviour:
   playerCurrentHealth: 5
   flashLength: 0.5
   invincible: 0
+  pfLoader: {fileID: 8151940156283176037, guid: 5a72507b50412b446a4f947031b3c6b8,
+    type: 3}
 --- !u!95 &2498241102750471954
 Animator:
   serializedVersion: 3
@@ -585,7 +600,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1.1704378
+  m_Mass: 0.86076134
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -594,32 +609,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &7990299993020921099
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7611716144160738237}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0030640662, y: -0.026542664}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.4375}
-    newSize: {x: 1.125, y: 1.4375}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8651828, y: 1.3528214}
-  m_EdgeRadius: 0
 --- !u!114 &1382715968569267550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,7 +646,7 @@ MonoBehaviour:
   - {x: -0.32584688, y: 0.33898658, z: 0}
   m_ShapePathHash: -1978196989
   m_Mesh: {fileID: 0}
-  m_InstanceId: 38558
+  m_InstanceId: -209948
 --- !u!114 &6985844799429437624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,6 +661,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftables: []
   uiCraft: {fileID: 0}
+--- !u!70 &4446404336226521039
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7611716144160738237}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.046545982, y: -0.0058021545}
+  m_Size: {x: 0.73793364, y: 1.4258957}
+  m_Direction: 0
 --- !u!1 &8723829824290200838
 GameObject:
   m_ObjectHideFlags: 0

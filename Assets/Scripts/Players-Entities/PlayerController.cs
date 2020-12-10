@@ -66,8 +66,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         
-        inventory = new Inventory(UseItem);
-        craftInventory = new CraftableInventory(UseItem);
+        inventory = new Inventory(UseItem,this);
+        craftInventory = new CraftableInventory(UseItem,this);
         uiInventory.SetInventory(inventory);
         uiCrafting.SetCraftInv(craftInventory);
         craftItems.SetCraftInv(craftInventory);
@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
-
+        CheckGear();
     }
     private void UseItem(Item item)
     {
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
             canAttack = true;
         }
         sfxMan = FindObjectOfType<SFXManager>();
-        CheckGear();
+        
         if (canAttack)
         {
             timeSinceAttack += Time.deltaTime;
@@ -135,26 +135,21 @@ public class PlayerController : MonoBehaviour
                 if (chargeTime > chargeClock)
                 {
                     chargeClock += 0.25f;
-                    switch (spriteWhite)
+                    if (spriteWhite)
                     {
-                        case true:
-                            normalSprite();
-                            spriteWhite = false;
-                            break;
-                        case false:
-                            spriteWhite = true;
-                            whiteSprite();
-                            break;
+                        normalSprite();
+                        spriteWhite = false;
+
+                    }
+                    else
+                    {
+                        spriteWhite = true;
+                        whiteSprite();
                     }
                 }
-
-
-
-
-
-
-
             }
+
+
             if (chargeTime >= 1f && fwooshPlayed == false)
             {
                 fwooshPlayed = true;
@@ -297,8 +292,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void CheckGear()
+    public void CheckGear()
     {
+        containsWeapon = false;
         if (CheckForItem(Item.ItemType.RubyNecklace, 0))
         {
             canDash = true;
@@ -307,62 +303,99 @@ public class PlayerController : MonoBehaviour
         {
             canDash = false;
         }
+        foreach (Item item in inventory.GetItemList())
+        {
+            switch (item.itemType)
+            {
+                
+                case Item.ItemType.WoodenSword:
+                    {
+                        if (wepNum <= 1)
+                        {
+                            canChattack = false;
+                            knockback = 2;
+                            damage = 1;
+                            wepNum = 1;
+                            containsWeapon = true;
+                            anim.SetInteger("Weapon", 1);
+                            
+                        }
+                        break;
+                    }
+                case Item.ItemType.ReinforcedWoodSword:
+                    {
+                        if (wepNum <= 2)
+                        {
+                            canChattack = false;
+                            knockback = 2;
+                            damage = 1;
+                            wepNum = 1;
+                            containsWeapon = true;
+                            anim.SetInteger("Weapon", 1);
+
+                        }
+                        break;
+                    }
+                case Item.ItemType.RefinedWoodSword:
+                    {
+                        if (wepNum <= 3)
+                        {
+                            canChattack = false;
+                            knockback = 2;
+                            damage = 1;
+                            wepNum = 1;
+                            containsWeapon = true;
+                            anim.SetInteger("Weapon", 1);
+
+                        }
+                        break;
+                    }
+                case Item.ItemType.IronSword:
+                    {
+                        if (wepNum <= 4)
+                        {
+                            canChattack = false;
+                            knockback = 2;
+                            damage = 1;
+                            wepNum = 1;
+                            containsWeapon = true;
+                            anim.SetInteger("Weapon", 1);
+
+                        }
+                        break;
+                    }
+                case Item.ItemType.SilverSword:
+                    {
+                        if (wepNum <= 5)
+                        {
+                            canChattack = false;
+                            knockback = 2;
+                            damage = 1;
+                            wepNum = 1;
+                            containsWeapon = true;
+                            anim.SetInteger("Weapon", 1);
+
+                        }
+                        break;
+                    }
+                case Item.ItemType.EmbroidedSword:
+                    {
+                        if (wepNum <= 6)
+                        {
+                            canChattack = false;
+                            knockback = 2;
+                            damage = 1;
+                            wepNum = 1;
+                            containsWeapon = true;
+                            anim.SetInteger("Weapon", 1);
+
+                        }
+                        break;
+                    }
+            }
+        }
+       
         
-        containsWeapon = false;
-        if (CheckForItem(Item.ItemType.WoodenSword, 0) && wepNum <= 1)
-        {
-            canChattack = false;
-            knockback = 2;
-            damage = 1;
-            wepNum = 1;
-            containsWeapon = true;
-            anim.SetInteger("Weapon", 1);
-        }
-        if (CheckForItem(Item.ItemType.ReinforcedWoodSword, 0) && wepNum <= 2)
-        {
-            canChattack = false;
-            knockback = 2;
-            damage = 2;
-            wepNum = 2;
-            containsWeapon = true;
-            anim.SetInteger("Weapon", 2);
-        }
-        if (CheckForItem(Item.ItemType.RefinedWoodSword, 0) && wepNum <= 3)
-        {
-            canChattack = false;
-            knockback = 2;
-            damage = 3;
-            wepNum = 3;
-            containsWeapon = true;
-            anim.SetInteger("Weapon", 3);
-        }
-        if (CheckForItem(Item.ItemType.IronSword, 0) && wepNum <= 4)
-        {
-            canChattack = false;
-            knockback = 3;
-            damage = 3;
-            wepNum = 4;
-            containsWeapon = true;
-            anim.SetInteger("Weapon", 4);
-        }
-        if (CheckForItem(Item.ItemType.SilverSword, 0) && wepNum <= 5)
-        {
-            canChattack = false;
-            knockback = 3;
-            damage = 4;
-            wepNum = 5;
-            containsWeapon = true;
-            anim.SetInteger("Weapon", 5);
-        }
-        if(CheckForItem(Item.ItemType.EmbroidedSword,0)&& wepNum <= 6)
-        {
-            canChattack = true;
-            knockback = 3;
-            damage = 4;
-            wepNum = 6;
-            containsWeapon = true;
-            anim.SetInteger("Weapon", 6);
-        }
         if (!containsWeapon)
         {
             canChattack = false;
@@ -387,6 +420,7 @@ public class PlayerController : MonoBehaviour
         }
         return false;
     }
+    
 
     
     private void FixedUpdate()

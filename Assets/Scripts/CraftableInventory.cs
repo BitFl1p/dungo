@@ -8,12 +8,13 @@ public class CraftableInventory
     public event EventHandler OnCraftableListChanged;
     public List<Item> itemList;
     private Action<Item> useItemAction;
-    
-    
-    public CraftableInventory(Action<Item> useItemAction)
+    PlayerController pCon;
+
+    public CraftableInventory(Action<Item> useItemAction,PlayerController controller)
     {
         this.useItemAction = useItemAction;
         itemList = new List<Item>();
+        pCon = controller;
 
     }
     public void AddCraftable(Item item)
@@ -40,6 +41,7 @@ public class CraftableInventory
         }
 
         OnCraftableListChanged?.Invoke(this, EventArgs.Empty);
+        pCon.CheckGear();
     }
     public void RemoveCraftable(Item item)
     {
@@ -66,6 +68,7 @@ public class CraftableInventory
         }
 
         OnCraftableListChanged?.Invoke(this, EventArgs.Empty);
+        pCon.CheckGear();
     }
     public void ClearCraftables()
     {
