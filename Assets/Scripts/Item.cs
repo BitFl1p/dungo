@@ -35,6 +35,40 @@ public class Item
     }
     public ItemType itemType;
     public int amount;
+    public string GetTooltip(ItemType myItem)
+    {
+        switch (myItem)
+        {
+            default: return "the fuck are you doing here";
+            case ItemType.BrassNecklace: return "";
+            case ItemType.BrassCharm:
+            case ItemType.Coal:
+            case ItemType.Brass: return "useless item left over from when I had bigger plans for this game";
+
+            case ItemType.Rope: return "A simple plain rope";
+            case ItemType.MetalOre: return "A chunk of metal ore";
+            case ItemType.Wood: return "Some wood";
+            case ItemType.Iron: return "A smelted ingot of iron";
+            
+            case ItemType.RefinedOre: return "A refined version of the metal ore you had";
+            case ItemType.WoodenHandle: return "A sword handle made of wood";
+            case ItemType.WoodenBlade:  return "A sword blade made of wood";
+            case ItemType.IronBlade:return "A blade made of what I can only describe as rust";
+            case ItemType.Silver:return "A polished ingot of silver more well made than this game";
+            case ItemType.SilverBlade:return "The blade of a sword made out of silver and destined to greatness";
+            case ItemType.WoodenSword:return "A rudimentary sword made of wood. Similar to one of those toys you'd see at the fare";
+            case ItemType.ReinforcedWoodSword:return "A wood sword but the blade is coated in rocks in a way that resembles barbed wire";
+            case ItemType.RefinedWoodSword:return "A wood sword but it's handle has been replaced with a less wobbly stone one.";
+            case ItemType.IronSword:return "A sword covered in what I can only describe as 'Solid Tetanus.' Oh wait you don't know what that is yet do you?";
+            case ItemType.SilverSword:return "A sword forged almost to perfection, it still holds some potential to improve";
+            case ItemType.RubyNecklace:return "A magic necklace that lets you dash. Quite useful for dodging things";
+            case ItemType.EmbroidedSword:return "A perfect legendary sword with a magic emerald in the middle, able to unleash a ravenous attack when charged.";
+
+
+    
+    }
+    }
+    
     
 
     public List<Item> GetRecipe(ItemType myItem)

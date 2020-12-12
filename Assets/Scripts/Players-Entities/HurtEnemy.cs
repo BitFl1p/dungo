@@ -9,7 +9,8 @@ public class HurtEnemy : MonoBehaviour
     public UnityEngine.Transform hitPoint;
     public PlayerController thePlayer;
     public float knockback;
-    
+    public float knockCoefficient = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,7 @@ public class HurtEnemy : MonoBehaviour
             //other.gameObject.SetActive(false); 
             other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(thePlayer.damage);
             Instantiate(damageBurst, hitPoint.transform.position, hitPoint.transform.rotation);
-            other.GetComponent<EnemyAI>().knockback = new Vector2(other.transform.position.x - transform.position.x, other.transform.position.y - transform.position.y).normalized * knockback*100;
+            other.GetComponent<EnemyAI>().knockback = new Vector2(other.transform.position.x - transform.position.x, other.transform.position.y - transform.position.y).normalized * knockback*knockCoefficient;
             
 
 

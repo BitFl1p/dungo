@@ -7,6 +7,7 @@ public class HurtPlayerCollision : MonoBehaviour
     public int damage;
     
     public float knockback = 1;
+    public float knockCoefficient = 10;
 
     // Start is called before the first frame update
 
@@ -15,13 +16,7 @@ public class HurtPlayerCollision : MonoBehaviour
         if(other.gameObject.name == "Player")
         {
             other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damage);
-            
-
-
-            Vector3 direction = ((other.transform.position - transform.position) * knockback).normalized * 50;
-            
-            other.gameObject.GetComponent<PlayerController>().knockers = direction;
-
+            other.gameObject.GetComponent<PlayerController>().knockers = new Vector2(other.transform.position.x - transform.position.x, other.transform.position.y - transform.position.y).normalized * knockback * knockCoefficient;
         }
     }
 

@@ -16,18 +16,34 @@ public class DialogueHolder : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.name == "Player"&&Input.GetKeyDown(KeyCode.E))
+        if (other.gameObject.name == "Player")
         {
-            if (!dMan.dialogActive)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                dMan.dialogLines = dialogueLines;
-                dMan.currentLine = 0;
-                dMan.ShowDialogue();
+                if (!dMan.dialogActive)
+                {
+                    dMan.dialogLines = dialogueLines;
+                    dMan.currentLine = 0;
+                    dMan.ShowDialogue();
+                }
+                if (transform.parent.GetComponent<VillagerMovement>() != null)
+                {
+                    transform.parent.GetComponent<VillagerMovement>().canMove = false;
+                }
             }
-            if(transform.parent.GetComponent<VillagerMovement>() != null)
+            else
             {
-                transform.parent.GetComponent<VillagerMovement>().canMove = false;
+                other.GetComponent<PlayerController>().dialogueButton.SetActive(true);
             }
+                
+        }
+
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+            other.GetComponent<PlayerController>().dialogueButton.SetActive(false);
         }
     }
 }

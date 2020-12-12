@@ -184,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   knockback: 1
+  knockCoefficient: 10
 --- !u!114 &8594189392261949246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +309,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b732a3c700807e9428084076bf6c712d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drag: 1
+  knockback: {x: 0, y: 0}
   target: {fileID: 0}
   speed: 200
   nextWaypointDistance: 3
   slidy: 0
+  seen: 0

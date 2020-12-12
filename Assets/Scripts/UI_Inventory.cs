@@ -7,6 +7,7 @@ using TMPro;
 
 public class UI_Inventory : MonoBehaviour
 {
+    
     private Inventory inventory;
     private UnityEngine.Transform itemSlotContainer;
     private UnityEngine.Transform itemSlotTemplate;
@@ -84,10 +85,9 @@ public class UI_Inventory : MonoBehaviour
         {
             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
             itemSlotRectTransform.gameObject.SetActive(true);
-            itemSlotRectTransform.GetComponent<Button_UI>().ClickFunc = () =>
-            {
-                //inventory.UseItem();
-            };
+            itemSlotRectTransform.GetComponent<TooltipHolder>().item = item;
+            itemSlotRectTransform.GetComponent<TooltipHolder>().SetCraft(true);
+
             itemSlotRectTransform.GetComponent<Button_UI>().MouseRightClickFunc = () =>
             {
                 Item duplicateItem = new Item { itemType = item.itemType, amount = item.amount };
@@ -114,6 +114,7 @@ public class UI_Inventory : MonoBehaviour
                 y--;
             }
         }
+        
 
     }
 }

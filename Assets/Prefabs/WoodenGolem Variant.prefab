@@ -129,6 +129,16 @@ PrefabInstance:
       propertyPath: slidy
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2490764012375765535, guid: 2a159dda46c87a74684d66bccf2cde90,
+        type: 3}
+      propertyPath: drag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2854437814261769670, guid: 2a159dda46c87a74684d66bccf2cde90,
+        type: 3}
+      propertyPath: knockback
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2920696354463647386, guid: 2a159dda46c87a74684d66bccf2cde90,
         type: 3}
       propertyPath: m_Mesh

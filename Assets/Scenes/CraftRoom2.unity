@@ -32808,7 +32808,7 @@ Tilemap:
       - {fileID: -5946135123008968736, guid: 28077e92958bc4547b01cea91703770f, type: 3}
       - {fileID: 4818853933259454151, guid: 28077e92958bc4547b01cea91703770f, type: 3}
       - {fileID: -6064525290903946141, guid: 28077e92958bc4547b01cea91703770f, type: 3}
-      m_AnimationSpeed: 12.000001
+      m_AnimationSpeed: 12
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 124, y: 26, z: 0}
@@ -33319,7 +33319,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.6377907}

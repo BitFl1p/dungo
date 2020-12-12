@@ -58,13 +58,13 @@ public class EnemyAI : MonoBehaviour
     {
         seen = true;
         
-        if (rb.velocity.x < 0)
+        if (rb.velocity.x + knockback.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
             leftLast = true;
             rightLast = false;
         }
-        else if (rb.velocity.x > 0)
+        else if (rb.velocity.x - knockback.x > 0)
         {
 
             transform.localScale = new Vector3(1, 1, 1);

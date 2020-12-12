@@ -12,7 +12,11 @@ public class CraftingItems : MonoBehaviour
     public List<Item> craftables;
     [SerializeField] private CraftableInventory craftInv;
     [SerializeField] private UICrafting uiCraft;
+    [SerializeField] private UI_Inventory uiInv;
     PlayerController pCon;
+    bool crafting;
+    bool alreadyChecked;
+
 
     private void Awake()
     {
@@ -34,14 +38,28 @@ public class CraftingItems : MonoBehaviour
 
 
     }
-
+    private void Update()
+    {
+        if (crafting)
+        {
+            if (!uiInv.uIInventoryActive)
+            {
+                craftInv.ClearCraftables(); uiCraft.RefreshCraftables();
+                alreadyChecked = false;
+            }
+            else if(!alreadyChecked)
+            {
+                CheckCraftables();
+                alreadyChecked = true;
+            }
+        }
+    }
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D other)
     {
-
-        if (other.tag == "Crafting") { CheckCraftables(); }
-        if (other.tag == "Smelting") { CheckSmeltables(); }
-
+        if (other.tag == "Crafting") { CheckCraftables(); crafting = true; }
+        if (other.tag == "Smelting") { CheckSmeltables(); crafting = true; }
+        if (other.tag == "Crafting" || other.tag == "Smelting") { pCon.inventoryButton.SetActive(true); }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -50,12 +68,15 @@ public class CraftingItems : MonoBehaviour
         {
             if (craftInv != null) { craftInv.ClearCraftables(); }
             uiCraft.RefreshCraftables();
+            crafting = false;
         }
         if (other.tag == "Smelting")
         {
             if (craftInv != null) { craftInv.ClearCraftables(); }
             uiCraft.RefreshCraftables();
+            crafting = false;
         }
+        if (other.tag == "Crafting" || other.tag == "Smelting") { pCon.inventoryButton.SetActive(false);}
     }
 
         
@@ -154,7 +175,7 @@ public class CraftingItems : MonoBehaviour
     {
         if (CheckForItem(Item.ItemType.MetalOre, 1))
         {
-            craftInv.AddCraftable(new Item { itemType = Item.ItemType.Brass, amount = 1 });
+            
             craftInv.AddCraftable(new Item { itemType = Item.ItemType.Iron, amount = 1 });
         }
         if (CheckForItem(Item.ItemType.RefinedOre, 1))

@@ -10,6 +10,8 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject dialogueButton;
+    public GameObject inventoryButton;
     public Vector2 knockers;
     public float drag;
     private enum State
@@ -307,59 +309,17 @@ public class PlayerController : MonoBehaviour
         {
             switch (item.itemType)
             {
-                
-                case Item.ItemType.WoodenSword:
-                    {
-                        if (wepNum <= 1)
-                        {
-                            canChattack = false;
-                            knockback = 2;
-                            damage = 1;
-                            wepNum = 1;
-                            containsWeapon = true;
-                            anim.SetInteger("Weapon", 1);
-                            
-                        }
-                        break;
-                    }
-                case Item.ItemType.ReinforcedWoodSword:
-                    {
-                        if (wepNum <= 2)
-                        {
-                            canChattack = false;
-                            knockback = 2;
-                            damage = 1;
-                            wepNum = 1;
-                            containsWeapon = true;
-                            anim.SetInteger("Weapon", 1);
 
-                        }
-                        break;
-                    }
-                case Item.ItemType.RefinedWoodSword:
+                case Item.ItemType.EmbroidedSword:
                     {
-                        if (wepNum <= 3)
+                        if (wepNum <= 6)
                         {
                             canChattack = false;
-                            knockback = 2;
-                            damage = 1;
-                            wepNum = 1;
+                            knockback = 4;
+                            damage = 3;
+                            wepNum = 6;
                             containsWeapon = true;
-                            anim.SetInteger("Weapon", 1);
-
-                        }
-                        break;
-                    }
-                case Item.ItemType.IronSword:
-                    {
-                        if (wepNum <= 4)
-                        {
-                            canChattack = false;
-                            knockback = 2;
-                            damage = 1;
-                            wepNum = 1;
-                            containsWeapon = true;
-                            anim.SetInteger("Weapon", 1);
+                            anim.SetInteger("Weapon", 6);
 
                         }
                         break;
@@ -369,18 +329,62 @@ public class PlayerController : MonoBehaviour
                         if (wepNum <= 5)
                         {
                             canChattack = false;
-                            knockback = 2;
-                            damage = 1;
-                            wepNum = 1;
+                            knockback = 4;
+                            damage = 3;
+                            wepNum = 5;
                             containsWeapon = true;
-                            anim.SetInteger("Weapon", 1);
+                            anim.SetInteger("Weapon", 5);
 
                         }
                         break;
                     }
-                case Item.ItemType.EmbroidedSword:
+                case Item.ItemType.IronSword:
                     {
-                        if (wepNum <= 6)
+                        if (wepNum <= 4)
+                        {
+                            canChattack = false;
+                            knockback = 3;
+                            damage = 3;
+                            wepNum = 4;
+                            containsWeapon = true;
+                            anim.SetInteger("Weapon", 4);
+
+                        }
+                        break;
+                    }
+                case Item.ItemType.RefinedWoodSword:
+                    {
+                        if (wepNum <= 3)
+                        {
+                            canChattack = false;
+                            knockback = 3;
+                            damage = 2;
+                            wepNum = 3;
+                            containsWeapon = true;
+                            anim.SetInteger("Weapon", 3);
+
+                        }
+                        break;
+                    }
+                
+                
+                case Item.ItemType.ReinforcedWoodSword:
+                    {
+                        if (wepNum <= 2)
+                        {
+                            canChattack = false;
+                            knockback = 3;
+                            damage = 1;
+                            wepNum = 2;
+                            containsWeapon = true;
+                            anim.SetInteger("Weapon", 2);
+
+                        }
+                        break;
+                    }
+                case Item.ItemType.WoodenSword:
+                    {
+                        if (wepNum <= 1)
                         {
                             canChattack = false;
                             knockback = 2;
@@ -458,6 +462,7 @@ public class PlayerController : MonoBehaviour
 
 
     }
+    
     public static Vector3 GetMouseWorldPosition()
     {
         Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);

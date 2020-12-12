@@ -25,6 +25,7 @@ public class DialogueManager : MonoBehaviour
         if (dialogActive) { inv.canOpenInv = false; } else { inv.canOpenInv = true; }
         if (dialogActive&&Input.GetKeyDown(KeyCode.E))
         {
+            thePlayer.canMove = false;
             //dBox.SetActive(false);
             //dialogActive = false;
             currentLine++;

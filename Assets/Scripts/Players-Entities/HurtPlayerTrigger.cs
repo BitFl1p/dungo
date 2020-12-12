@@ -7,21 +7,14 @@ public class HurtPlayerTrigger : MonoBehaviour
     public int damage;
     
     public float knockback = 1;
-
+    public float knockCoefficient = 10;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "Player")
         {
             other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damage);
-            
-
-
-            Vector3 direction = (other.transform.position - transform.position) * knockback * 50;
-            direction.Normalize();
-            other.gameObject.GetComponent<PlayerController>().knockers = direction;
-
-
+            other.GetComponent<PlayerController>().knockers = new Vector2(other.transform.position.x - transform.position.x, other.transform.position.y - transform.position.y).normalized * knockback * knockCoefficient;
         }
     }
 }

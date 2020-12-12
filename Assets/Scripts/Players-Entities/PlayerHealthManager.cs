@@ -16,6 +16,7 @@ public class PlayerHealthManager : MonoBehaviour
     public bool invincible;
     int scene = 0;
     public LoadNewArea pfLoader;
+    float count; float maxCount = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,9 @@ public class PlayerHealthManager : MonoBehaviour
         playerCurrentHealth = playerMaxHealth;
         playerSprite = GetComponent<SpriteRenderer>();
         //Debug.Log("Yeet");
-        
+        count = 0;
+
+
     }
 
     // Update is called once per frame
@@ -37,12 +40,16 @@ public class PlayerHealthManager : MonoBehaviour
         scene = SceneManager.GetActiveScene().buildIndex;
         if (playerCurrentHealth <=0) 
         {
+            
             sfxMan.SFX[2].Play();
             GameObject transition = GameObject.FindGameObjectWithTag("Transition");
             transition.GetComponent<Animator>().Play("Transition_Start");
             transition.GetComponent<AnimationEvents>().levelToLoad = scene;
             GetComponent<PlayerController>().startPoint = "";
-            SetMaxHealth();
+            StartCoroutine(DelayedHeal(1));
+            
+            
+            
 
         }
         if (flashActive)
@@ -76,4 +83,19 @@ public class PlayerHealthManager : MonoBehaviour
     }
 
     public void SetMaxHealth() { playerCurrentHealth = playerMaxHealth; }
+    private IEnumerator DelayedHeal(float duration)
+    {
+        
+        float normalizedTime = 0;
+        while (normalizedTime <= 1f)
+        {
+            normalizedTime += Time.deltaTime / duration;
+            yield return null;
+        }
+        if(normalizedTime >= 1f)
+        {
+            SetMaxHealth();
+            yield break;
+        }
+    }
 }
