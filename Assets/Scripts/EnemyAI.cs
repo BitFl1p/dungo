@@ -52,27 +52,25 @@ public class EnemyAI : MonoBehaviour
             currentWaypoint = 0;
         }
     }
-    
-
-    public void PlayerSeen()
+    void Update()
     {
-        seen = true;
-        
-        if (rb.velocity.x + knockback.x < 0)
+        if (rb.velocity.x - knockback.x < 0)
         {
+            
             transform.localScale = new Vector3(-1, 1, 1);
             leftLast = true;
             rightLast = false;
         }
-        else if (rb.velocity.x - knockback.x > 0)
+        else if (rb.velocity.x + knockback.x > 0)
         {
-
+            
             transform.localScale = new Vector3(1, 1, 1);
             rightLast = true;
             leftLast = false;
         }
         else if (rb.velocity.x == 0)
         {
+            
             if (leftLast)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
@@ -82,6 +80,14 @@ public class EnemyAI : MonoBehaviour
                 transform.localScale = new Vector3(1, 1, 1);
             }
         }
+
+    }
+
+    public void PlayerSeen()
+    {
+        seen = true;
+        
+        
 
         if (path == null)
         {
@@ -106,6 +112,7 @@ public class EnemyAI : MonoBehaviour
         else
         {
             rb.velocity = force+knockback;
+            rb.AddForce((force + knockback) / 10);
         }
         if (knockback.x > drag)
         {

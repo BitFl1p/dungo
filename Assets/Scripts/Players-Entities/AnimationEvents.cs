@@ -69,4 +69,12 @@ public class AnimationEvents : MonoBehaviour
 
         
     }
+    public Vector2 offset;
+    void SpawnMissile(GameObject missile)
+    {
+        
+        GameObject thisMissile = Instantiate(missile);
+        thisMissile.transform.position = new Vector2(transform.position.x + offset.x, transform.position.y + offset.y);
+        thisMissile.transform.rotation = Quaternion.Euler(0,0,Random.Range(-180,180));
+    }
 }

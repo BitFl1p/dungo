@@ -27,6 +27,15 @@ EditorBuildSettings:
     path: Assets/Scenes/CraftRoom2.unity
     guid: e69bdb31777c6b34eaef24d2d8a46572
   - enabled: 1
+    path: Assets/Scenes/BossRoom2.unity
+    guid: c8246e21d403869478f594533fc531df
+  - enabled: 1
     path: Assets/Scenes/Outside.unity
     guid: d3f4dfcc7f0cd9343b0b18799bb37b32
+  - enabled: 1
+    path: Assets/Scenes/CraftRoom3.unity
+    guid: 1c2f864df1251f74ca1fc2ed7de704a2
+  - enabled: 1
+    path: Assets/Scenes/BossRoom3.unity
+    guid: bdbea48129d655248a4328fa8ba91f55
   m_configObjects: {}
