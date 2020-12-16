@@ -164,6 +164,7 @@ MonoBehaviour:
   transition: {fileID: 17164035}
   canvas: {fileID: 17164038}
   globalVolume: {fileID: 2144044363}
+  offset: {x: 0, y: 0}
 --- !u!95 &17164035
 Animator:
   serializedVersion: 3
@@ -1402,6 +1403,7 @@ MonoBehaviour:
   transition: {fileID: 0}
   canvas: {fileID: 0}
   globalVolume: {fileID: 0}
+  offset: {x: 0, y: 0}
 --- !u!1 &482717203
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEditorInternal.VersionControl;
 using System.Linq;
 
 public class CraftingItems : MonoBehaviour
@@ -167,6 +166,14 @@ public class CraftingItems : MonoBehaviour
         {
             craftInv.AddCraftable(new Item { itemType = Item.ItemType.EmbroidedSword, amount = 1 });
 
+        }
+        if (CheckForItem(Item.ItemType.Silver, 2))
+        {
+            craftInv.AddCraftable(new Item { itemType = Item.ItemType.SilverBlade, amount = 1 });
+        }
+        if (CheckForItem(Item.ItemType.SilverBlade, 1) && CheckForItem(Item.ItemType.Silver, 1) )
+        {
+            craftInv.AddCraftable(new Item { itemType = Item.ItemType.SilverSword, amount = 1 });
         }
         uiCraft.RefreshCraftables();
         

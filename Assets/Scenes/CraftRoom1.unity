@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7850a17818c7f4f915dba9ea7c7eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newTrack: 0
+  newTrack: 16
   switchOnStart: 1
 --- !u!4 &376560175
 Transform:

@@ -132,7 +132,7 @@ public class Item
             case ItemType.SilverSword:                      return new List<Item>()
                                                                     {
                                                                         new Item { itemType = Item.ItemType.SilverBlade, amount = 1 },
-                                                                        new Item { itemType = Item.ItemType.WoodenHandle, amount = 1 },
+                                                                        new Item { itemType = Item.ItemType.Silver, amount = 1 },
                                                                         
                                                                     };
             case ItemType.RubyNecklace:                     return new List<Item>()

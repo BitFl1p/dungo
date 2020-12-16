@@ -17,8 +17,8 @@ public class EnemyAI : MonoBehaviour
     Rigidbody2D rb;
     bool leftLast; bool rightLast;
     public bool seen = false;
-    
-    
+    Vector2 direction;
+    Vector2 force;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +54,39 @@ public class EnemyAI : MonoBehaviour
     }
     void Update()
     {
+        if (slidy)
+        {
+            rb.AddForce(force + knockback);
+        }
+        else
+        {
+            rb.velocity = force + knockback;
+            rb.AddForce((force + knockback) / 10);
+        }
+        if (knockback.x > drag)
+        {
+            knockback.x -= drag;
+        }
+        else if (knockback.x < -drag)
+        {
+            knockback.x += drag;
+        }
+        else
+        {
+            knockback.x = 0;
+        }
+        if (knockback.y > 0)
+        {
+            knockback.y -= drag;
+        }
+        else if (knockback.y < -drag)
+        {
+            knockback.y += drag;
+        }
+        else
+        {
+            knockback.y = 0;
+        }
         if (rb.velocity.x - knockback.x < 0)
         {
             
@@ -82,6 +115,7 @@ public class EnemyAI : MonoBehaviour
         }
 
     }
+    
 
     public void PlayerSeen()
     {
@@ -102,42 +136,10 @@ public class EnemyAI : MonoBehaviour
         {
             reachedEndOfPath = false;
         }
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        force = direction * speed * Time.deltaTime;
 
-        if (slidy)
-        {
-            rb.AddForce(force+knockback);
-        }
-        else
-        {
-            rb.velocity = force+knockback;
-            rb.AddForce((force + knockback) / 10);
-        }
-        if (knockback.x > drag)
-        {
-            knockback.x -= drag;
-        }
-        else if (knockback.x < -drag)
-        {
-            knockback.x += drag;
-        }
-        else
-        {
-            knockback.x = 0;
-        }
-        if (knockback.y > 0)
-        {
-            knockback.y -= drag;
-        }
-        else if (knockback.y < -drag)
-        {
-            knockback.y += drag;
-        }
-        else
-        {
-            knockback.y = 0;
-        }
+        
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)
         {

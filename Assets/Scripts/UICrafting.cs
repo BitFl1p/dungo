@@ -49,6 +49,7 @@ public class UICrafting : MonoBehaviour
             {
 
                 crafting.CraftItem(item.GetRecipe(item.itemType), new List<Item>() { item });
+                Tooltip.HideTooltip_Static();
             };
 
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize + offsetX, y * itemSlotCellSize + offsetY);

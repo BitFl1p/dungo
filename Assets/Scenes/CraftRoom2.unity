@@ -31317,7 +31317,7 @@ PrefabInstance:
     - target: {fileID: 1370587351305454333, guid: c894639d5d400d34d8b6b943515712c4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 127.846
+      value: 129.9
       objectReference: {fileID: 0}
     - target: {fileID: 1370587351305454333, guid: c894639d5d400d34d8b6b943515712c4,
         type: 3}
@@ -31430,7 +31430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7850a17818c7f4f915dba9ea7c7eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newTrack: 0
+  newTrack: 16
   switchOnStart: 1
 --- !u!4 &200815250
 Transform:
@@ -32828,7 +32828,7 @@ Tilemap:
       - {fileID: 8390118352044223879, guid: 28077e92958bc4547b01cea91703770f, type: 3}
       - {fileID: -2762131281398178928, guid: 28077e92958bc4547b01cea91703770f, type: 3}
       - {fileID: 4340531556266000433, guid: 28077e92958bc4547b01cea91703770f, type: 3}
-      m_AnimationSpeed: 12.000001
+      m_AnimationSpeed: 12
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 135, y: 26, z: 0}

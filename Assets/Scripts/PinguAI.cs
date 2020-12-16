@@ -19,6 +19,8 @@ public class PinguAI : MonoBehaviour
     bool leftLast; bool rightLast;
     public bool seen = false;
     Animator anim;
+    Vector2 direction;
+    Vector2 force;
 
 
     // Start is called before the first frame update
@@ -61,52 +63,32 @@ public class PinguAI : MonoBehaviour
         if (rb.velocity.x - knockback.x < 0)
         {
             anim.SetBool("Moving", true);
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(1, 1, 1);
             leftLast = true;
             rightLast = false;
         }
         else if (rb.velocity.x + knockback.x > 0)
         {
             anim.SetBool("Moving", true);
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(-1, 1, 1);
             rightLast = true;
             leftLast = false;
         }
         else if (rb.velocity.x == 0)
         {
             anim.SetBool("Moving", false);
-            if (leftLast)
+            if (rightLast)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
             }
-            if (rightLast)
+            if (leftLast)
             {
                 transform.localScale = new Vector3(1, 1, 1);
             }
+            
         }
-
-    }
-    public void PlayerSeen()
-    {
-        seen = true;
-
-        
-
-        if (path == null)
-        {
-            return;
-        }
-        if (currentWaypoint >= path.vectorPath.Count)
-        {
-            reachedEndOfPath = true;
-            return;
-        }
-        else
-        {
-            reachedEndOfPath = false;
-        }
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        force = direction * speed * Time.deltaTime;
 
         if (slidy)
         {
@@ -115,7 +97,7 @@ public class PinguAI : MonoBehaviour
         else
         {
             rb.velocity = force + knockback;
-            rb.AddForce((force + knockback)/10);
+            rb.AddForce((force + knockback) / 10);
         }
         if (knockback.x > drag)
         {
@@ -141,6 +123,28 @@ public class PinguAI : MonoBehaviour
         {
             knockback.y = 0;
         }
+
+    }
+    public void PlayerSeen()
+    {
+        seen = true;
+
+        
+
+        if (path == null)
+        {
+            return;
+        }
+        if (currentWaypoint >= path.vectorPath.Count)
+        {
+            reachedEndOfPath = true;
+            return;
+        }
+        else
+        {
+            reachedEndOfPath = false;
+        }
+        
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)
         {

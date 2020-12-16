@@ -34,7 +34,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.67494094, g: 0.6745283, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 000000003b7114d049c35681f54a1872fb601fa8bd640aed
@@ -70,12 +70,12 @@ PrefabInstance:
     - target: {fileID: 2241060162955130084, guid: 2a159dda46c87a74684d66bccf2cde90,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: -1474338565
+      value: 1914194677
       objectReference: {fileID: 0}
     - target: {fileID: 2241060162955130084, guid: 2a159dda46c87a74684d66bccf2cde90,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2241060162955130084, guid: 2a159dda46c87a74684d66bccf2cde90,
         type: 3}
@@ -98,6 +98,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8979279992529535595, guid: f7c08c0983bd84e4a8d127dd4d8d29f0,
         type: 3}
+    - target: {fileID: 2241060162955130084, guid: 2a159dda46c87a74684d66bccf2cde90,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 57
+      objectReference: {fileID: 0}
     - target: {fileID: 2241060162955130085, guid: 2a159dda46c87a74684d66bccf2cde90,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -196,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 2920696354463647386, guid: 2a159dda46c87a74684d66bccf2cde90,
         type: 3}
       propertyPath: m_InstanceId
-      value: -493882
+      value: -78652
       objectReference: {fileID: 0}
     - target: {fileID: 2920696354463647386, guid: 2a159dda46c87a74684d66bccf2cde90,
         type: 3}
@@ -295,6 +300,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8594189392261949246, guid: 2a159dda46c87a74684d66bccf2cde90,
         type: 3}
+      propertyPath: Drops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594189392261949246, guid: 2a159dda46c87a74684d66bccf2cde90,
+        type: 3}
       propertyPath: enemyMaxHealth
       value: 15
       objectReference: {fileID: 0}
@@ -302,6 +312,21 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyCurrentHealth
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594189392261949246, guid: 2a159dda46c87a74684d66bccf2cde90,
+        type: 3}
+      propertyPath: Drops.Array.data[0].item.itemType
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594189392261949246, guid: 2a159dda46c87a74684d66bccf2cde90,
+        type: 3}
+      propertyPath: Drops.Array.data[0].item.amount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594189392261949246, guid: 2a159dda46c87a74684d66bccf2cde90,
+        type: 3}
+      propertyPath: Drops.Array.data[0].chance
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2241060162955130107, guid: 2a159dda46c87a74684d66bccf2cde90, type: 3}

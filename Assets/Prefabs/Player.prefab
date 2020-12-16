@@ -196,6 +196,7 @@ MonoBehaviour:
   transition: {fileID: 0}
   canvas: {fileID: 0}
   globalVolume: {fileID: 0}
+  offset: {x: 0, y: 0}
 --- !u!1 &3766460844396094658
 GameObject:
   m_ObjectHideFlags: 0

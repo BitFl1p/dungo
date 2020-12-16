@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
                 state = State.Chattacking;
                 sfxMan.SFX[0].Play();
                 damage = 6;
-                knockback = 4;
+                knockback = 6;
                 myRigidbody.velocity = Vector2.zero;
                 anim.SetBool("PlayerChattacking", true);
                 timeSinceAttack = 0;
@@ -314,7 +314,7 @@ public class PlayerController : MonoBehaviour
                     {
                         if (wepNum <= 6)
                         {
-                            canChattack = false;
+                            canChattack = true;
                             knockback = 4;
                             damage = 3;
                             wepNum = 6;
